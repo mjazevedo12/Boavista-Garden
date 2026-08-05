@@ -1183,7 +1183,7 @@ contemporânea.”</blockquote>
   </div>
 </section>
 
-<!-- ============ CONTACTO (Netlify Forms) ============ -->
+<!-- ============ CONTACTO ============ -->
 <!-- ============ FAQ ============ -->
 <section class="faq" id="faq" data-nav="creme">
   <div class="wrap faq__grid">
@@ -2024,6 +2024,12 @@ var PLANTAS = {
   }
 
   /* ---------- formulário: envio sem mudar de página ---------- */
+  /* URL do Apps Script publicado (/exec). Chamada direta, sem intermediários.
+     Para migrar de plataforma de alojamento, o site continua a funcionar tal
+     como está — só este URL importa. Se republicares o Apps Script com nova
+     implementação, atualiza aqui. */
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkn21uQhVoAU9cdEMUpLwYFv_3GJCpI7s_fdm99mS9TmHx0LTRstWmFmW2WMQqVaai/exec';
+
   var form = document.querySelector('form[name="contacto"]');
   var okBox = document.getElementById('formOk');
   var MSG = {
@@ -2065,6 +2071,18 @@ var PLANTAS = {
       var payload = {};
       new FormData(form).forEach(function(valor, chave){ payload[chave] = valor; });
 
+      /* campos captados automaticamente pelo site (o visitante não os escreve) */
+      payload['idioma'] = lang;
+      payload['origem'] = window.location.href;
+      payload['referrer'] = document.referrer || '';
+      var qs = new URLSearchParams(window.location.search);
+      payload['utm_source']   = qs.get('utm_source')   || '';
+      payload['utm_medium']   = qs.get('utm_medium')   || '';
+      payload['utm_campaign'] = qs.get('utm_campaign') || '';
+      payload['utm_content']  = qs.get('utm_content')  || '';
+      payload['utm_term']     = qs.get('utm_term')     || '';
+      payload['gclid']        = qs.get('gclid')        || '';
+
       /* honeypot: se o campo escondido vier preenchido, é bot — não envia nada */
       if (payload['bot-field']) { return; }
 
@@ -2072,12 +2090,16 @@ var PLANTAS = {
       submitBtn.setAttribute('disabled','');
       erroBox.hidden = true;
 
-      var url = '/enviar-pedido?_=' + Date.now(); /* cache-buster */
+      /* Chamada direta ao Apps Script.
+         Content-Type text/plain evita o preflight CORS (que o Apps Script não
+         responde); o script lê e.postData.contents e faz JSON.parse na mesma. */
+      var url = APPS_SCRIPT_URL + '?_=' + Date.now(); /* cache-buster */
 
       fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         cache: 'no-store',
+        redirect: 'follow',
         body: JSON.stringify(payload)
       })
       .then(function(resposta){ return resposta.json(); })
