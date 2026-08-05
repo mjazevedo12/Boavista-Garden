@@ -2024,12 +2024,6 @@ var PLANTAS = {
   }
 
   /* ---------- formulário: envio sem mudar de página ---------- */
-  /* URL do Apps Script publicado (/exec). Chamada direta, sem intermediários.
-     Para migrar de plataforma de alojamento, o site continua a funcionar tal
-     como está — só este URL importa. Se republicares o Apps Script com nova
-     implementação, atualiza aqui. */
-  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkn21uQhVoAU9cdEMUpLwYFv_3GJCpI7s_fdm99mS9TmHx0LTRstWmFmW2WMQqVaai/exec';
-
   var form = document.querySelector('form[name="contacto"]');
   var okBox = document.getElementById('formOk');
   var MSG = {
@@ -2090,16 +2084,15 @@ var PLANTAS = {
       submitBtn.setAttribute('disabled','');
       erroBox.hidden = true;
 
-      /* Chamada direta ao Apps Script.
-         Content-Type text/plain evita o preflight CORS (que o Apps Script não
-         responde); o script lê e.postData.contents e faz JSON.parse na mesma. */
-      var url = APPS_SCRIPT_URL + '?_=' + Date.now(); /* cache-buster */
+      /* Envia para a rota neutra do site, servida pela função Netlify, que
+         reencaminha ao Apps Script e devolve o JSON com os cabeçalhos certos.
+         (Chamar o Apps Script direto do browser falha por CORS no redirect.) */
+      var url = '/enviar-pedido?_=' + Date.now(); /* cache-buster */
 
       fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        headers: { 'Content-Type': 'application/json' },
         cache: 'no-store',
-        redirect: 'follow',
         body: JSON.stringify(payload)
       })
       .then(function(resposta){ return resposta.json(); })
