@@ -74,11 +74,11 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:400;
      font-variant-numeric:lining-nums tabular-nums;font-feature-settings:'lnum' 1,'tnum' 1;
-     font-size:clamp(1.0625rem,1rem + .22vw,1.1875rem);line-height:1.72;-webkit-font-smoothing:antialiased;
+     font-size:clamp(1.125rem,1.0625rem + .22vw,1.25rem);line-height:1.72;-webkit-font-smoothing:antialiased;
      text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;background:var(--beige)}
 a{color:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;letter-spacing:.005em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:.005em}
 h1,h2,h3,.mark,.mark *,.unit__letter,.unit__name,.unit__area,.unit__price,
 .wing__name,.wing__meta b,.lb__title,.drawer__lang,.facts dd,.duo__foot strong,
 .unit__detail dd,.hero__price,.seam__year,blockquote,.agent b,
@@ -142,7 +142,7 @@ p{margin:0 0 1.3em}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;padding:1.15rem var(--pad);color:var(--cream);transition:background .5s ease,color .5s ease,box-shadow .5s ease,padding .4s ease}
-.nav.is-shrunk{padding-top:.7rem;padding-bottom:.7rem}
+.nav.is-shrunk{padding-top:.7rem;padding-bottom:.7rem;box-shadow:0 1px 0 var(--line),0 8px 24px rgba(43,29,31,.06)}
 .nav{background:transparent;box-shadow:none}
 .nav__links{display:flex;gap:2.1rem;justify-content:center;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase}
 .nav__links a{text-decoration:none;opacity:.82;transition:opacity .3s}
@@ -166,11 +166,15 @@ p{margin:0 0 1.3em}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;color:var(--cream);overflow:hidden;background:var(--forest)}
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 68%;transform:scale(1.06);animation:slowzoom 18s ease-out forwards}
 @keyframes slowzoom{to{transform:scale(1)}}
+@keyframes heroPartIn{to{opacity:1;transform:translateY(0)}}
+@keyframes heroLeadIn{to{opacity:1;transform:translateY(0)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(67,65,38,.42) 0%,rgba(67,65,38,.12) 34%,rgba(67,65,38,.34) 68%,rgba(67,65,38,.7) 100%)}
 .hero__body{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 var(--pad);text-align:center;display:flex;flex-direction:column;align-items:center;transform:translateY(14vh)}
-.hero h1{font-size:clamp(2.9rem,7.4vw,6.6rem);line-height:1.02;max-width:16ch;margin:0 0 1.4rem}
+.hero h1{font-size:clamp(2.9rem,7.4vw,6.6rem);line-height:1.02;max-width:16ch;margin:0 0 1.4rem;opacity:0;transform:translateY(22px);animation:heroPartIn 1s cubic-bezier(.22,1,.36,1) forwards .15s}
 .hero h1 em{font-style:italic;color:#F6EDE2}
-.hero__lead{max-width:44ch;font-size:clamp(1.05rem,1.4vw,1.2rem);opacity:.94;margin:1.6rem auto 2.4rem;line-height:1.7}
+.hero__lead{max-width:44ch;font-size:clamp(1.05rem,1.4vw,1.2rem);margin:1.6rem auto 2.4rem;line-height:1.7;opacity:0;transform:translateY(22px);animation:heroLeadIn 1s cubic-bezier(.22,1,.36,1) forwards .4s}
+.hero__actions{opacity:0;transform:translateY(22px);animation:heroLeadIn 1s cubic-bezier(.22,1,.36,1) forwards .6s}
+@media(prefers-reduced-motion:reduce){.hero h1,.hero__lead,.hero__actions{animation:none;opacity:1;transform:none}}
 .hero__price{margin:0 0 2.2rem;font-size:.95rem;letter-spacing:.04em;color:#F6EDE2}
 
 .hero__actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
@@ -420,7 +424,7 @@ p{margin:0 0 1.3em}
                 color:var(--ink);display:grid;place-items:center;transition:background .35s,color .35s}
 .privacy__close:hover{background:var(--wine);border-color:var(--wine);color:var(--cream)}
 .privacy__scroll{overflow-y:auto;padding:clamp(2.5rem,5vw,4rem) clamp(1.6rem,4vw,3rem) 4rem}
-.privacy__scroll h1{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.12;margin:0 0 .5rem}
+.privacy__scroll h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.12;margin:0 0 .5rem}
 .privacy__scroll h2{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:2rem 0 .6rem}
 .privacy__scroll p,.privacy__scroll li{font-size:.98rem;line-height:1.68;margin:0 0 1em}
 .privacy__scroll .updated{color:var(--muted);font-size:.88rem;margin-bottom:2rem}
@@ -553,12 +557,12 @@ html[lang="en"] .privacy [data-en]{display:block}
 .nav.is-shrunk .brand-logo{width:clamp(92px,8vw,112px)}
 .brand-logo--foot{width:160px}
 @media(max-width:600px){.brand-logo{width:120px}}
-.form__title{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,2.6vw,2.1rem);color:var(--cream);margin:0 0 2rem;grid-column:1/-1}
+.form__title{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.1rem);color:var(--cream);margin:0 0 2rem;grid-column:1/-1}
 
 /* FAQ */
 .faq{background:var(--cream);padding:clamp(5rem,10vw,8rem) 0}
 .faq__grid{display:grid;grid-template-columns:1fr;gap:clamp(2.5rem,5vw,4rem)}
-.faq__head h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3.2rem);line-height:1.14;max-width:18ch;color:var(--olive)}
+.faq__head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3.2rem);line-height:1.14;max-width:18ch;color:var(--olive)}
 .faq__list{border-top:1px solid var(--line)}
 .faq__item{border-bottom:1px solid var(--line)}
 .faq__q{width:100%;background:none;border:0;cursor:pointer;text-align:left;
@@ -606,7 +610,7 @@ html[lang="en"] .privacy [data-en]{display:block}
 .foot__cert-svg{width:clamp(84px,9vw,104px);height:auto;color:var(--cream);display:block}
 .foot__certtxt{font-size:.72rem;line-height:1.5;color:var(--tan-lt);max-width:32ch;margin:0}
 .foot__cert-title{color:var(--cream);font-family:var(--sans);font-weight:500;font-size:.92rem;letter-spacing:0;text-transform:none;display:inline-block;margin-bottom:.35rem}
-.loc h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.6vw,3rem);line-height:1.14;color:var(--olive);margin:0;max-width:35rem}
+.loc h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.6vw,3rem);line-height:1.14;color:var(--olive);margin:0;max-width:35rem}
 .loc__text{padding-top:.4rem}
 .loc__text .lead{color:var(--muted);font-size:1.05rem;line-height:1.7;margin:0}
 @media(max-width:820px){.loc__grid{grid-template-columns:1fr;gap:1.5rem}.loc h2{max-width:none}}
@@ -650,7 +654,7 @@ html[lang="en"] .privacy [data-en]{display:block}
     <a href="#edificios" data-i18n="os-edif-cios-0">Os Edifícios</a>
         <a href="palacete.html" data-i18n="o-palacete-nav">O Palacete</a>
     <a href="#localizacao" data-i18n="localiza-o-0">Localização</a>
-    <a href="#residencias">Residências</a>
+    <a href="#residencias" data-i18n="residencias-nav-0">Residências</a>
     <a href="#arquitetura" data-i18n="arquitetura-0">Arquitetura</a>
   </div>
   <div class="nav__right"><button class="nav__lang" id="langToggle" type="button" aria-label="Switch to English">EN</button>
@@ -663,7 +667,7 @@ html[lang="en"] .privacy [data-en]{display:block}
   <a href="#projeto" data-i18n="o-projeto-0">O Projeto</a>
   <a href="#edificios" data-i18n="os-edif-cios-0">Os Edifícios</a>
   <a href="#localizacao" data-i18n="localiza-o-0">Localização</a>
-  <a href="#residencias">Residências</a>
+  <a href="#residencias" data-i18n="residencias-nav-0">Residências</a>
   <a href="#arquitetura" data-i18n="arquitetura-0">Arquitetura</a>
   <a href="#contacto" data-i18n="agendar-reuni-o-0">Agendar visita</a>
 </div>
@@ -673,7 +677,7 @@ html[lang="en"] .privacy [data-en]{display:block}
 <header class="hero" id="topo" data-nav="imagem">
   <img class="hero__img" src="Imagens%20Exteriores/Book%20Boavista%20Garden%20Portugues-11.jpg" alt="Boavista Garden: palacete histórico e edifício contemporâneo com jardim" fetchpriority="high" onerror="imgFallback(this)">
   <div class="hero__body">
-    <h1>Duas eras.<br>Um só <em>jardim</em>.</h1>
+    <h1><span data-i18n="hero-h1-a-0">Duas eras.</span><br><span data-i18n="hero-h1-b-0">Um só</span> <em data-i18n="hero-h1-em-0">jardim</em>.</h1>
     <p class="hero__lead" data-i18n="um-palacete-de-1920-preservado-u-0">Um palacete de 1920 preservado, um edifício contemporâneo e um jardim que os une. Apenas 16 residências, no endereço mais simbólico da cidade.</p>
     <div class="hero__actions">
       <a href="#contacto" class="btn btn--brass" data-i18n="agendar-visita-0">Agendar visita</a>
@@ -712,8 +716,6 @@ html[lang="en"] .privacy [data-en]{display:block}
       <div class="wing__body">
         <p class="wing__era" data-i18n="anos-20-restaurado-0">Anos 20 &middot; restaurado</p>
         <p class="wing__name" data-i18n="o-palacete-0">O Palacete</p>
-        <p class="wing__meta"><span><b>3</b> residências</span><span><b>T4</b> &middot; 215–259 m&sup2;</span><span>desde <b>2.995.000&nbsp;€</b></span></p>
-        <div class="wing__more"><p data-i18n="fachada-art-d-co-e-tra-a-origina-0">Fachada Art Déco e traça original preservadas. No interior, habitação inteiramente nova — com adega, mezzanine e áreas exteriores privativas.</p></div>
         <span class="wing__cta" data-i18n="descobrir-o-palacete">Descobrir o palacete &#8594;</span>
       </div>
     </a>
@@ -723,17 +725,15 @@ html[lang="en"] .privacy [data-en]{display:block}
       <div class="wing__body">
         <p class="wing__era" data-i18n="constru-o-nova-0">Construção nova</p>
         <p class="wing__name" data-i18n="o-edif-cio-0">O Edifício</p>
-        <p class="wing__meta"><span><b>9</b> residências</span><span><b>T3 e T4</b> &middot; 142–207 m&sup2;</span><span>desde <b>1.785.000&nbsp;€</b></span></p>
-        <div class="wing__more"><p data-i18n="duplex-com-jardim-nos-pisos-infe-0">Duplex com jardim nos pisos inferiores, penthouses com varanda nos superiores. Pedra, madeira e vãos generosos sobre o jardim.</p></div>
         <span class="wing__cta" data-i18n="ver-as-resid-ncias-0">Ver as residências &#8594;</span>
       </div>
     </button>
   </div>
 
   <p class="duo__foot">
-    <span><strong>12</strong> residências disponíveis</span>
-    <span><strong>1</strong> jardim privativo comum</span>
-    <span><strong>24h</strong> portaria com segurança</span>
+    <span><strong>12</strong> <span data-i18n="residencias-disponiveis-min-0">residências disponíveis</span></span>
+    <span><strong>1</strong> <span data-i18n="jardim-privativo-comum-0">jardim privativo comum</span></span>
+    <span><strong>24h</strong> <span data-i18n="portaria-com-seguranca-0">portaria com segurança</span></span>
     <span class="duo__hint" data-i18n="clique-num-edif-cio-para-ver-as--0">Clique num edifício para ver as residências</span>
   </p>
 </section>
@@ -789,7 +789,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">A</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>373,00 m²</span>
           <span class="unit__price" data-preco="A" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -810,7 +810,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">B</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>392,00 m²</span>
           <span class="unit__price" data-preco="B" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -831,7 +831,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">C</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>388,00 m²</span>
           <span class="unit__price" data-preco="C" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -852,7 +852,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">D</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>320,00 m²</span>
           <span class="unit__price" data-preco="D" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -873,7 +873,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">E</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>313,00 m²</span>
           <span class="unit__price" data-preco="E" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -894,7 +894,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">F</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>368,00 m²</span>
           <span class="unit__price" data-preco="F" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -915,7 +915,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">G</span>
           <span>
             <span class="unit__name" data-i18n="boavista-duplex-garden-0">Boavista Duplex Garden</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>366,00 m²</span>
           <span class="unit__price" data-preco="G" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -978,7 +978,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">J</span>
           <span>
             <span class="unit__name" data-i18n="boavista-penthouse-0">Boavista Penthouse</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>306,00 m²</span>
           <span class="unit__price" data-preco="J" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -999,7 +999,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">K</span>
           <span>
             <span class="unit__name" data-i18n="boavista-penthouse-0">Boavista Penthouse</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>278,00 m²</span>
           <span class="unit__price" data-preco="K" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -1062,7 +1062,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">N</span>
           <span>
             <span class="unit__name" data-i18n="palacete-0">Palacete</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>315,00 m²</span>
           <span class="unit__price" data-preco="N" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -1083,7 +1083,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">O</span>
           <span>
             <span class="unit__name" data-i18n="palacete-0">Palacete</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>360,00 m²</span>
           <span class="unit__price" data-preco="O" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -1104,7 +1104,7 @@ html[lang="en"] .privacy [data-en]{display:block}
           <span class="unit__letter">P</span>
           <span>
             <span class="unit__name" data-i18n="palacete-0">Palacete</span>
-            <span class="unit__tip">T4 &middot; Elevador privativo</span>
+            <span class="unit__tip">T4 &middot; <span data-i18n="elevador-privativo-0">Elevador privativo</span></span>
           </span>
           <span class="unit__area"><span class="unit__k" data-i18n="rea-total-0">Área total</span>398,00 m²</span>
           <span class="unit__price" data-preco="P" data-sob="1"><span class="unit__k" data-i18n="valor-0">Valor</span>Sob consulta</span>
@@ -1627,16 +1627,23 @@ var PLANTAS = {
       var r = seccoes[i].getBoundingClientRect();
       if (r.top <= linha && r.bottom > linha){ tom = seccoes[i].getAttribute('data-nav'); break; }
     }
-    if (tom === tomAtual) return;
-    tomAtual = tom;
+    var shrunk = nav.classList.contains('is-shrunk');
+    /* ao fazer scroll sobre a imagem/hero, o header ganha fundo claro para ficar legível */
+    if (shrunk && tom === 'imagem') tom = 'creme';
+    var chave = tom + (shrunk ? ':s' : '');
+    if (chave === tomAtual) return;
+    tomAtual = chave;
     var t = TONS[tom] || TONS.imagem;
     nav.style.background = t.bg;
     nav.style.color = t.fg;
-    nav.style.boxShadow = t.filete ? '0 1px 0 var(--line)' : 'none';
+    var sombraScroll = shrunk ? ',0 8px 24px rgba(43,29,31,.06)' : '';
+    nav.style.boxShadow = (t.filete ? '0 1px 0 var(--line)' : 'none') + (sombraScroll && t.filete ? sombraScroll : '');
   };
   var encolher = function(){
+    var antes = nav.classList.contains('is-shrunk');
     if (window.scrollY > 40) nav.classList.add('is-shrunk');
     else nav.classList.remove('is-shrunk');
+    if (nav.classList.contains('is-shrunk') !== antes){ pintarNav(); }
   };
   window.addEventListener('scroll', encolher, {passive:true});
   encolher();
@@ -1952,7 +1959,7 @@ var PLANTAS = {
   });
 
   /* ---------- tradução PT/EN ---------- */
-  var EN = {"as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "ISO 9001:2015 — Quality Management System. Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date"};
+  var EN = {"as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "ISO 9001:2015 — Quality Management System. Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date", "residencias-nav-0": "Residences", "residencias-min-0": "residences", "desde-0": "from", "residencias-disponiveis-min-0": "residences available", "jardim-privativo-comum-0": "shared private garden", "portaria-com-seguranca-0": "24-hour concierge", "hero-h1-a-0": "Two eras.", "hero-h1-b-0": "One single", "hero-h1-em-0": "garden", "elevador-privativo-0": "Private lift"};
   var idioma = 'pt';
   var els = document.querySelectorAll('[data-i18n]');
   /* guardar o PT original de cada elemento */
