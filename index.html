@@ -126,9 +126,9 @@ p{margin:0 0 1.3em}
 /* Nova variante */
 .eyebrow--gold{
     color:var(--tan-lt); /* ou a variável que quiseres */
-}
+;color:#434126}
 
-.wrap{max-width:none;margin:0;padding:0 var(--pad)}
+.wrap{max-width:1960px;margin:0 auto;padding:0 var(--pad)}
 .btn{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);font-size:.84rem;letter-spacing:.13em;text-transform:uppercase;font-weight:400;padding:1.25rem 2.4rem;border:1px solid currentColor;background:transparent;color:inherit;text-decoration:none;cursor:pointer;transition:background .45s ease,color .45s ease}
 .btn--ghost:hover{background:rgba(246,237,226,.14)}
 .btn--brass{background:var(--olive);border-color:var(--olive);color:var(--cream)}
@@ -170,7 +170,7 @@ p{margin:0 0 1.3em}
 @keyframes heroLeadIn{to{opacity:1;transform:translateY(0)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(67,65,38,.42) 0%,rgba(67,65,38,.12) 34%,rgba(67,65,38,.34) 68%,rgba(67,65,38,.7) 100%)}
 .hero__body{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 var(--pad);text-align:center;display:flex;flex-direction:column;align-items:center;transform:translateY(14vh)}
-.hero h1{font-size:clamp(2.9rem,7.4vw,6.6rem);line-height:1.02;max-width:16ch;margin:0 0 1.4rem;opacity:0;transform:translateY(22px);animation:heroPartIn 1s cubic-bezier(.22,1,.36,1) forwards .15s}
+.hero h1{font-size:clamp(2.9rem,7.4vw,6.6rem);line-height:1.02;max-width:18ch;margin:0 0 1.4rem;opacity:0;transform:translateY(22px);animation:heroPartIn 1s cubic-bezier(.22,1,.36,1) forwards .15s}
 .hero h1 em{font-style:italic;color:#F6EDE2}
 .hero__lead{max-width:44ch;font-size:clamp(1.05rem,1.4vw,1.2rem);margin:1.6rem auto 2.4rem;line-height:1.7;opacity:0;transform:translateY(22px);animation:heroLeadIn 1s cubic-bezier(.22,1,.36,1) forwards .4s}
 .hero__actions{opacity:0;transform:translateY(22px);animation:heroLeadIn 1s cubic-bezier(.22,1,.36,1) forwards .6s}
@@ -193,7 +193,7 @@ p{margin:0 0 1.3em}
 .duo{background:var(--beige);color:var(--ink);padding:clamp(5rem,11vw,9rem) 0 clamp(5rem,10vw,8rem)}
 .duo__head{max-width:none;margin:0 0 rem;padding:0 var(--pad)}
 .duo h2{font-size:clamp(1.7rem,3.8vw,3.2rem);line-height:1.1;max-width:none;white-space:nowrap}
-.duo__sub{max-width:50rem;color:#5F5A3E;margin-top:1.2rem}
+.duo__sub{max-width:55rem;color:#5F5A3E;margin-top:1.2rem}
 .duo__pair{display:grid;grid-template-columns:var(--split,1fr 1fr);align-items:stretch;gap:2px;max-width:none;margin:0;padding:0 var(--pad);
            transition:grid-template-columns .7s cubic-bezier(.22,1,.36,1)}
 .wing{position:relative;margin:0;border:0;padding:0;background:#434126;color:var(--cream);text-align:left;
@@ -289,8 +289,8 @@ p{margin:0 0 1.3em}
 .units{margin:clamp(2.5rem,5vw,3.8rem) 0 0;border-top:1px solid var(--line)}
 .unit{border-bottom:1px solid var(--line)}
 .unit[hidden]{display:none}
-.unit[data-estado="vendido"] .unit__letter{color:var(--muted);opacity:.55}
-.unit[data-estado="vendido"] .unit__name{opacity:.68}
+.unit[data-estado="vendido"] .unit__letter{color:var(--wine);opacity:.85}
+.unit[data-estado="vendido"] .unit__name{opacity:1}
 .unit__sold{display:inline-block;font-family:var(--sans);font-size:.76rem;letter-spacing:.15em;
             text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:.45rem .8rem}
 .unit__row{display:grid;grid-template-columns:5rem minmax(0,1fr) 10rem 12.5rem 2.75rem;align-items:center;
@@ -299,15 +299,15 @@ p{margin:0 0 1.3em}
            transition:padding-left .4s ease}
 .unit__row:hover{padding-left:1.1rem}
 .unit__letter{font-family:var(--serif);font-size:2.6rem;line-height:.85;color:var(--wine);font-weight:300}
-.unit__name{font-family:var(--serif);font-size:1.4rem;line-height:1.2;margin:0}
-.unit__tip{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:.45rem 0 0}
+.unit__name{font-family:var(--serif);font-size:1.55rem;line-height:1.2;margin:0;color:var(--ink)}
+.unit__tip{font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;color:var(--forest);margin:.5rem 0 0;display:block}
 .unit__area,.unit__price{margin:0;font-variant-numeric:tabular-nums}
-.unit__area{font-family:var(--serif);font-size:1.5rem}
+.unit__area{font-family:var(--serif);font-size:1.6rem;color:var(--ink)}
 .unit__price{font-family:var(--serif);font-size:1.5rem;color:var(--wine)}
 .unit__price[data-sob="1"]{font-size:1.1rem;color:#5F5A3E;font-style:italic}
 .unit__price[data-sob="2"]{font-size:1rem}
-.unit__k{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;
-         color:var(--muted);opacity:.75;margin-bottom:.3rem}
+.unit__k{display:block;font-family:var(--sans);font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
+         color:var(--forest);opacity:1;margin-bottom:.35rem}
 .unit__chev{justify-self:end;width:2.2rem;height:2.2rem;border:1px solid var(--line);border-radius:50%;
             display:grid;place-items:center;font-size:1rem;color:var(--muted);
             transition:transform .45s ease,background .35s,color .35s,border-color .35s}
@@ -315,12 +315,12 @@ p{margin:0 0 1.3em}
             border-color:var(--wine);color:var(--cream)}
 .unit__panel{overflow:hidden;max-height:0;transition:max-height .55s cubic-bezier(.22,1,.36,1)}
 .unit__row[aria-expanded="true"]+.unit__panel{max-height:34rem}
-.unit__inner{padding:.4rem .4rem clamp(2rem,3.4vw,2.6rem) 4.5rem}
+.unit__inner{padding:.4rem .4rem clamp(2rem,3.4vw,2.6rem) 7.15rem}
 .unit__detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));
               gap:2.1rem clamp(2rem,3.5vw,3.5rem);margin:0 0 2.6rem;max-width:64rem}
-.unit__detail dt{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
-.unit__detail dd{margin:0;font-family:var(--serif);font-size:1.22rem;line-height:1.25}
-.unit__detail dd small{display:block;font-family:var(--sans);font-size:.82rem;color:#5F5A3E;margin-top:.25rem}
+.unit__detail dt{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--forest);margin-bottom:.45rem}
+.unit__detail dd{margin:0;font-family:var(--serif);font-size:1.38rem;line-height:1.3;color:var(--ink)}
+.unit__detail dd small{display:block;font-family:var(--sans);font-size:.9rem;color:var(--forest);margin-top:.3rem}
 .unit__actions{display:flex;flex-wrap:wrap;gap:1.4rem}
 .unit__link{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:0;
             background:none;padding:0 0 .28rem;cursor:pointer;font-family:var(--sans);
@@ -333,7 +333,7 @@ p{margin:0 0 1.3em}
   .unit__area{font-size:1.2rem;margin-top:.8rem}
   .unit__price{font-size:1.2rem;margin-top:.5rem}
   .unit__chev{grid-row:1;grid-column:3}
-  .unit__inner{padding-left:3.2rem}
+  .unit__inner{padding-left:4.6rem}
   .unit__row[aria-expanded="true"]+.unit__panel{max-height:48rem}
 }
 
@@ -386,7 +386,7 @@ p{margin:0 0 1.3em}
 .agent{margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid rgba(246,237,226,.2)}
 .agent b{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:.5rem}
 .agent a{display:block;text-decoration:none;opacity:.8;font-size:1.04rem;padding:.15rem 0}
-.agent__note{display:block;font-size:.8rem;color:var(--tan-lt);opacity:.75;margin:.25rem 0 0;letter-spacing:.01em}
+.agent__note{display:block;font-size:.8rem;color:#434126;opacity:1;margin:.25rem 0 0;letter-spacing:.01em}
 .agent a:hover{opacity:1}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:1.9rem 1.6rem}
 .field{display:flex;flex-direction:column;gap:.7rem}
@@ -490,66 +490,39 @@ html[lang="en"] .privacy [data-en]{display:block}
 .foot{background:var(--wine);color:var(--cream);padding:clamp(2.5rem,4.5vw,3.5rem) 0 2rem;border-top:1px solid rgba(245,241,233,.22)}
 .foot__inner{padding:0 var(--pad)}
 /* footer — certificação */
-.foot__cert{border-left:1px solid rgba(245,241,233,.18);padding-left:clamp(1.5rem,3vw,2.5rem);align-self:center}
-.foot__brand{align-self:start;margin-top:1rem}
 
-.foot__grid{
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    align-items:start;
-    gap:3rem;
-    padding-bottom:2.8rem;
-    border-bottom:1px solid rgba(245,241,233,.16);
-}
+
+
+
 
 /* Coluna esquerda */
-.foot__col{
-    justify-self:start;
-}
+
 
 /* Coluna direita */
-.foot__cert{
-    justify-self:center;      /* coloca a coluna ao centro */
-    border-left:1px solid rgba(245,241,233,.18);
-    padding-left:clamp(1.5rem,3vw,2.5rem);
 
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;   /* conteúdo alinhado à esquerda */
-    text-align:left;
-}
 
 /* Coluna esquerda */
-.foot__col:first-child{
-    justify-self:start;
-}
 
-.foot__cert-copy{
-    text-align:left;
-}
+
+
 
 /* Coluna direita (Boavista Garden) */
-.foot__col:last-child{
-    justify-self:end;
-    text-align:right;
-}
+
 
 @media(max-width:860px){.foot__grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:2.5rem}
   .foot__col{align-items:center;text-align:center}
-  .foot__cert-row{
-    display:flex;
-    align-items:center;
-    gap:1.5rem;
-    justify-content:flex-start;
-}
+  
   .foot__cert{border-left:0;padding-left:0}
-  .foot__brand{align-self:center;margin-top:0;}}
+  }
 
 .foot__logo-svg{width:160px;height:auto;color:var(--cream);display:block;margin-top:.6rem}
+
+
+
 .foot__brand{text-decoration:none;color:var(--cream)}
 
-.foot__com{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tan-lt);margin:0 0 .8rem}
-.foot__legal{margin-top:1.8rem;font-size:.82rem;color:#5F5A3E;display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between}
+.foot__com{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#434126;margin:0 0 1.4rem}
+
 
 
 /* logótipo gráfico Boavista Garden */
@@ -591,7 +564,7 @@ html[lang="en"] .privacy [data-en]{display:block}
 .ico--dl{width:17px}
 .btn--icon{display:inline-flex;align-items:center;gap:.7rem}
 /* botão descarregar brochura — centrado, moldura fina (como no print) */
-.res__brochura{display:flex;justify-content:center;margin:8rem}
+.res__brochura{display:flex;justify-content:center;margin:clamp(2.5rem,5vw,4rem) 0 clamp(1rem,2vw,1.5rem)}
 .btn--brochura{border:1px solid var(--olive);color:var(--olive);background:transparent;
   padding:1.1rem 2.4rem;letter-spacing:.16em;font-size:.78rem;text-transform:uppercase;
   transition:background .35s,color .35s}
@@ -605,16 +578,74 @@ html[lang="en"] .privacy [data-en]{display:block}
 .agent__info a{display:block;text-decoration:none;font-size:1.1rem;opacity:.95;line-height:1.2}
 
 /* footer certificação — selos + texto lado a lado (como no print) */
-.foot__cert-row{display:flex;align-items:flex-start;gap:1.2rem;margin-top:.6rem}
+
 .foot__seals{margin:0;flex:none}
 .foot__cert-svg{width:clamp(84px,9vw,104px);height:auto;color:var(--cream);display:block}
 .foot__certtxt{font-size:.72rem;line-height:1.5;color:var(--tan-lt);max-width:32ch;margin:0}
-.foot__cert-title{color:var(--cream);font-family:var(--sans);font-weight:500;font-size:.92rem;letter-spacing:0;text-transform:none;display:inline-block;margin-bottom:.35rem}
+
 .loc h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.6vw,3rem);line-height:1.14;color:var(--olive);margin:0;max-width:35rem}
 .loc__text{padding-top:.4rem}
-.loc__text .lead{color:var(--muted);font-size:1.05rem;line-height:1.7;margin:0}
+.loc__text .lead{color:var(--ink);font-size:1.2rem;line-height:1.7;margin:0}
 @media(max-width:820px){.loc__grid{grid-template-columns:1fr;gap:1.5rem}.loc h2{max-width:none}}
 
+
+/* ===== FOOTER — estrutura 4 colunas (modelo Residential Premium) ===== */
+
+
+
+
+
+
+
+
+
+.foot__com{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#434126;margin:0 0 1.4rem}
+
+
+
+
+
+
+
+.foot__cert-svg{width:clamp(84px,9vw,104px);height:auto;color:var(--cream)}
+
+.foot__certtxt{font-size:.8rem;line-height:1.6;color:#434126;max-width:34ch;margin:0}
+
+
+
+
+@media(max-width:1000px){}
+@media(max-width:560px){.foot__grid{grid-template-columns:1fr;text-align:left}}
+
+
+/* ===== FOOTER — 3 colunas (disposição anterior, cores #434126) ===== */
+.foot__grid{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:clamp(2rem,4vw,3.5rem);padding-bottom:clamp(2.5rem,4vw,3.5rem);border-bottom:1px solid rgba(245,241,233,.16)}
+.foot__col{justify-self:start}
+.foot__logo{display:inline-block;text-decoration:none;color:var(--cream)}
+.foot__logo-svg{width:160px;height:auto;color:var(--cream);display:block;margin-top:.6rem}
+.foot__cert{justify-self:center;border-left:1px solid rgba(245,241,233,.18);padding-left:clamp(1.5rem,3vw,2.5rem);display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.foot__cert-row{display:flex;align-items:flex-start;gap:1.2rem;margin-top:.6rem}
+.foot__seals{margin:0;flex:none}
+.foot__cert-svg{width:clamp(84px,9vw,104px);height:auto;color:var(--cream);display:block}
+
+.foot__certtxt{font-size:.8rem;line-height:1.6;color:#434126;max-width:34ch;margin:0}
+.foot__brand{justify-self:end;text-decoration:none;color:var(--cream);text-align:right;align-self:center}
+
+
+
+@media(max-width:900px){.foot__grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:2.5rem}.foot__col{justify-self:center;text-align:center}.foot__cert{justify-self:center;border-left:0;padding-left:0;align-items:center;text-align:center}.foot__cert-row{flex-direction:column;align-items:center}.foot__brand{justify-self:center;text-align:center}}
+
+
+/* footer legal + cert title (cores #434126, tamanhos harmoniosos) */
+.foot__legal{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:1.8rem;font-size:.82rem;color:#434126}
+.foot__legal a{color:#434126;text-decoration:underline;text-underline-offset:3px;transition:opacity .3s}
+.foot__legal a:hover{opacity:.7}
+.foot__cert-title{color:#434126;font-family:var(--sans);font-weight:500;font-size:.8rem;letter-spacing:.01em;text-transform:none;display:block;margin-bottom:.15rem;white-space:nowrap}
+@media(max-width:900px){.foot__legal{flex-direction:column;align-items:center;text-align:center}}
+
+.hero__line2{white-space:nowrap}
+@media(max-width:420px){.hero__line2{white-space:normal}}
+@media(max-width:560px){.foot__cert-title{white-space:normal}}
 </style>
 </head>
 <body>
@@ -677,7 +708,7 @@ html[lang="en"] .privacy [data-en]{display:block}
 <header class="hero" id="topo" data-nav="imagem">
   <img class="hero__img" src="Imagens%20Exteriores/Book%20Boavista%20Garden%20Portugues-11.jpg" alt="Boavista Garden: palacete histórico e edifício contemporâneo com jardim" fetchpriority="high" onerror="imgFallback(this)">
   <div class="hero__body">
-    <h1><span data-i18n="hero-h1-a-0">Duas eras.</span><br><span data-i18n="hero-h1-b-0">Um só</span> <em data-i18n="hero-h1-em-0">jardim</em>.</h1>
+    <h1><span data-i18n="hero-h1-a-0">Duas eras.</span><br><span class="hero__line2"><span data-i18n="hero-h1-b-0">Um só</span> <em data-i18n="hero-h1-em-0">jardim</em>.</span></h1>
     <p class="hero__lead" data-i18n="um-palacete-de-1920-preservado-u-0">Um palacete de 1920 preservado, um edifício contemporâneo e um jardim que os une. Apenas 16 residências, no endereço mais simbólico da cidade.</p>
     <div class="hero__actions">
       <a href="#contacto" class="btn btn--brass" data-i18n="agendar-visita-0">Agendar visita</a>
@@ -1271,7 +1302,7 @@ contemporânea.”</blockquote>
 <section class="contact" id="contacto" data-nav="vinho">
   <div class="wrap contact__grid">
     <div>
-      <p class="eyebrow eyebrow--gold" data-i18n="comercializa-o-exclusiva-0">Mais informações</p>
+      <p class="eyebrow eyebrow--gold" style="color:#434126" data-i18n="comercializa-o-exclusiva-0">Mais informações</p>
       <h2 data-i18n="conversa-em-privado-0">Conheça o Boavista Garden</h2>
       <p class="contact__intro" data-i18n="as-melhores-resid-ncias-rarament-0">Descarregue a brochura de apresentação, solicite mais informações ou agende uma visita para conhecer todos os detalhes deste projeto.</p>
       <div class="agent">
@@ -1420,7 +1451,7 @@ contemporânea.”</blockquote>
   </defs>
   <path class="st0" d="M333.24,132.73c.33.6.5,1.25.5,1.96s-.17,1.37-.5,1.96c-.34.6-.8,1.07-1.39,1.42-.59.35-1.24.52-1.95.52s-1.35-.17-1.94-.52c-.59-.34-1.06-.82-1.4-1.41-.34-.6-.51-1.25-.51-1.96s.17-1.35.5-1.96c.33-.6.79-1.08,1.38-1.44.59-.36,1.25-.54,1.96-.54s1.37.18,1.96.53c.59.35,1.05.83,1.39,1.43ZM269.34,96.14c1.52,0,2.94-.35,4.2-1.04,1.25-.69,2.26-1.67,2.99-2.93.73-1.26,1.1-2.69,1.1-4.25s-.37-3.02-1.1-4.31c-.73-1.29-1.74-2.31-3.01-3.04-1.27-.73-2.69-1.1-4.22-1.1s-2.97.38-4.24,1.13c-1.27.75-2.28,1.78-3,3.07-.72,1.29-1.09,2.74-1.09,4.29,0,2.39.79,4.31,2.41,5.87,1.61,1.54,3.61,2.32,5.95,2.32ZM307.6,136.05h3.6l-1.78-4.69-1.81,4.69ZM285.61,117.13c-.33-.6-.8-1.08-1.39-1.43-.59-.35-1.25-.53-1.96-.53s-1.37.18-1.96.54c-.59.36-1.05.84-1.38,1.44-.33.6-.5,1.25-.5,1.96s.17,1.37.51,1.96c.34.6.81,1.07,1.4,1.41.59.34,1.24.52,1.94.52s1.36-.17,1.95-.52c.59-.35,1.05-.82,1.39-1.42.34-.6.5-1.25.5-1.96s-.17-1.36-.5-1.96ZM271.75,133.27c.1-.2.14-.45.14-.74,0-.53-.16-.92-.48-1.17-.32-.25-.81-.37-1.46-.37h-2.28v3.06h2.28c.3,0,.56-.02.79-.07.23-.05.43-.12.61-.23.18-.11.32-.26.41-.47ZM342.95,116.22c-.4-.29-.84-.5-1.34-.64-.49-.14-1.03-.2-1.62-.2h-1.12v7.41h1.29c.58,0,1.11-.07,1.6-.21.48-.14.91-.36,1.28-.65.37-.29.66-.68.87-1.15.21-.48.31-1.03.31-1.66s-.11-1.23-.34-1.72c-.22-.49-.54-.88-.93-1.16ZM383.51,86.59c0,47.61-38.59,86.2-86.2,86.2s-86.2-38.59-86.2-86.2S249.7.39,297.31.39s86.2,38.59,86.2,86.2ZM337.09,48.12c-.06,1.9,1.43,3.49,3.33,3.55,1.9.06,3.49-1.43,3.56-3.33.06-1.9-1.43-3.49-3.33-3.55-1.9-.06-3.49,1.43-3.55,3.33ZM325.77,84.76v-4.63h12.86v-5.43h-18.45v26.66h18.45v-5.41h-12.86v-5.77h10.38v-5.41h-10.38ZM330.23,118.22v-2.84h4.46v-1.3h-5.84v10.01h5.84v-1.3h-4.46v-3.27h3.7v-1.3h-3.7ZM324.43,115.38l-6.01,7.41v1.3h7.78v-1.3h-6.02l6-7.41v-1.3h-7.61v1.3h5.87ZM330.53,41.8c-.06,1.82,1.37,3.35,3.19,3.41,1.82.06,3.35-1.37,3.41-3.2.06-1.82-1.37-3.35-3.2-3.41-1.82-.06-3.35,1.37-3.41,3.2ZM323.06,36.59c-.06,1.75,1.31,3.21,3.06,3.26,1.75.06,3.21-1.31,3.26-3.06.06-1.75-1.31-3.21-3.06-3.26-1.75-.06-3.21,1.31-3.26,3.06ZM321.04,42.75c-1.75-.06-3.21,1.31-3.26,3.06-.06,1.75,1.31,3.21,3.06,3.26,1.75.06,3.21-1.31,3.26-3.06.06-1.75-1.31-3.21-3.06-3.26ZM314.89,32.61c-.05,1.67,1.25,3.07,2.92,3.12,1.67.05,3.07-1.25,3.12-2.92.05-1.67-1.25-3.07-2.92-3.12-1.67-.05-3.07,1.25-3.12,2.92ZM317.14,42.78c.05-1.67-1.25-3.07-2.92-3.12-1.67-.05-3.07,1.25-3.12,2.92-.05,1.67,1.25,3.07,2.92,3.12,1.67.05,3.07-1.25,3.12-2.92ZM314.42,114.08v10.01h1.38v-10.01h-1.38ZM307.21,18.7c-.08,2.33,1.75,4.28,4.08,4.35,2.33.08,4.28-1.75,4.35-4.08.08-2.33-1.75-4.28-4.08-4.35-2.33-.08-4.28,1.75-4.35,4.08ZM305.9,30.01c-.05,1.59,1.2,2.92,2.79,2.97,1.59.05,2.92-1.2,2.98-2.79.05-1.59-1.2-2.92-2.79-2.97-1.59-.05-2.92,1.2-2.98,2.79ZM303.99,40.46c-.05,1.59,1.2,2.92,2.79,2.97,1.59.05,2.92-1.2,2.97-2.79.05-1.59-1.2-2.92-2.79-2.97-1.59-.05-2.92,1.2-2.97,2.79ZM296.46,17.31c-.07,2.25,1.69,4.14,3.94,4.21,2.25.07,4.13-1.69,4.21-3.94.07-2.25-1.69-4.13-3.94-4.21-2.25-.07-4.13,1.69-4.21,3.94ZM302.64,29.08c.05-1.51-1.14-2.78-2.65-2.83-1.51-.05-2.78,1.14-2.83,2.65-.05,1.51,1.14,2.78,2.65,2.83,1.51.05,2.78-1.14,2.83-2.65ZM299.46,36.86c-1.51-.05-2.78,1.14-2.83,2.65-.05,1.51,1.14,2.78,2.65,2.83,1.51.05,2.78-1.14,2.83-2.65.05-1.51-1.14-2.78-2.65-2.83ZM296.17,74.69h-6.51v26.66h5.59v-18.37l13.3,18.37h5.57v-26.66h-5.55v17.1l-12.39-17.1ZM309.82,114.08v7.7l-5.7-7.7h-1.78v10.01h1.38v-8.19l6.04,8.19h1.44v-10.01h-1.38ZM291.99,37.17c-1.44-.05-2.64,1.08-2.69,2.51-.05,1.44,1.08,2.64,2.52,2.69,1.44.05,2.64-1.08,2.68-2.52.05-1.44-1.08-2.64-2.51-2.68ZM290.6,31.85c1.44.05,2.64-1.08,2.68-2.52.05-1.44-1.08-2.64-2.51-2.68-1.44-.05-2.64,1.08-2.68,2.52-.05,1.44,1.08,2.64,2.52,2.68ZM285.52,17.63c-.07,2.17,1.63,3.99,3.81,4.06,2.17.07,3.99-1.63,4.06-3.81.07-2.17-1.63-3.99-3.81-4.06-2.17-.07-3.99,1.63-4.06,3.81ZM284.49,38.74c-1.36-.04-2.49,1.02-2.54,2.38-.04,1.36,1.02,2.5,2.38,2.54,1.36.04,2.5-1.02,2.54-2.38.04-1.36-1.02-2.49-2.38-2.54ZM281.71,28.49c-1.36-.04-2.5,1.02-2.54,2.38-.04,1.36,1.02,2.49,2.38,2.54,1.36.04,2.49-1.02,2.54-2.38.04-1.36-1.02-2.49-2.38-2.54ZM277.38,41.35c-1.28-.04-2.35.96-2.39,2.24-.04,1.28.96,2.35,2.24,2.39,1.28.04,2.35-.96,2.39-2.24.04-1.28-.96-2.35-2.24-2.39ZM274.81,19.68c-.07,2.09,1.58,3.85,3.67,3.92,2.1.07,3.85-1.58,3.92-3.67.07-2.1-1.58-3.85-3.67-3.92-2.09-.07-3.85,1.58-3.92,3.67ZM273.02,31.73c-1.28-.04-2.35.96-2.39,2.24-.04,1.28.96,2.35,2.24,2.39,1.28.04,2.35-.96,2.39-2.24.04-1.28-.96-2.35-2.24-2.39ZM270.74,45.19c-1.2-.04-2.21.9-2.25,2.11-.04,1.2.9,2.21,2.11,2.25,1.2.04,2.21-.9,2.25-2.11.04-1.2-.9-2.21-2.11-2.25ZM264.56,23.39c-.07,2.02,1.52,3.71,3.54,3.77,2.02.06,3.71-1.52,3.77-3.54.07-2.02-1.52-3.71-3.53-3.77-2.02-.07-3.71,1.52-3.77,3.54ZM262.68,38.41c-.04,1.2.9,2.21,2.11,2.25,1.2.04,2.21-.9,2.25-2.11.04-1.2-.9-2.21-2.11-2.25-1.2-.04-2.21.9-2.25,2.11ZM262.66,51.92c-.04,1.12.85,2.07,1.97,2.1,1.13.04,2.07-.85,2.1-1.97.04-1.12-.84-2.07-1.97-2.1-1.12-.04-2.07.85-2.1,1.97ZM262.23,76.07c-2.12,1.21-3.81,2.87-5.01,4.95-1.2,2.08-1.81,4.39-1.81,6.87,0,1.89.37,3.7,1.09,5.37.72,1.67,1.71,3.12,2.94,4.29,1.23,1.17,2.69,2.11,4.35,2.79,1.66.68,3.43,1.02,5.24,1.02h15.84v-5.41h-4.86c2.14-2.07,3.22-4.75,3.22-7.98,0-1.91-.37-3.74-1.09-5.43-.72-1.7-1.72-3.16-2.96-4.37-1.24-1.2-2.73-2.16-4.44-2.85-1.71-.69-3.54-1.04-5.45-1.04-2.57,0-4.95.61-7.07,1.82ZM267.96,119.1c0-.51.1-1,.3-1.48.2-.48.47-.9.82-1.25.34-.35.75-.64,1.23-.86.48-.21.99-.32,1.51-.32s1.01.1,1.48.31c.47.21.89.5,1.25.87l.98-.87c-.48-.51-1.05-.89-1.69-1.17-.64-.27-1.33-.41-2.06-.41s-1.4.14-2.05.41c-.64.27-1.2.64-1.66,1.1-.46.46-.83,1.01-1.1,1.65-.27.64-.41,1.31-.41,2.01,0,.95.24,1.83.71,2.62.47.8,1.11,1.42,1.9,1.87.8.45,1.66.68,2.59.68,1.38,0,2.59-.5,3.61-1.5l-.9-.9c-.36.35-.77.62-1.24.83-.47.2-.96.31-1.47.31s-.99-.1-1.46-.31c-.47-.21-.88-.49-1.23-.84-.34-.35-.62-.76-.83-1.25-.21-.48-.31-.98-.31-1.5ZM249.29,114.08v10.01h1.38v-4.35h1.72l2.54,4.35h1.58l-2.61-4.44c.77-.12,1.36-.41,1.77-.87.41-.46.61-1.08.61-1.87,0-.96-.29-1.67-.89-2.14-.59-.46-1.4-.7-2.43-.7h-3.68ZM253.13,50.87c.03-1.05-.79-1.92-1.83-1.96-1.05-.03-1.92.79-1.96,1.83-.03,1.05.79,1.92,1.83,1.96,1.05.03,1.92-.79,1.96-1.84ZM257.5,46.15c1.13.04,2.07-.85,2.1-1.97.04-1.12-.85-2.07-1.97-2.1-1.12-.04-2.07.85-2.1,1.97-.04,1.13.85,2.07,1.97,2.1ZM255.04,28.71c-.06,1.94,1.46,3.56,3.4,3.63,1.94.06,3.56-1.46,3.63-3.4.06-1.94-1.46-3.56-3.4-3.63-1.94-.06-3.56,1.46-3.63,3.4ZM246.46,35.46c-.06,1.86,1.4,3.42,3.26,3.48,1.86.06,3.42-1.4,3.48-3.26.06-1.86-1.4-3.42-3.26-3.48-1.86-.06-3.42,1.4-3.48,3.26ZM228.23,62.55c-.06,1.71,1.28,3.14,2.99,3.19,1.71.06,3.14-1.28,3.19-2.99.06-1.71-1.28-3.14-2.99-3.19-1.71-.06-3.14,1.28-3.19,2.99ZM225.28,73.14c-.05,1.63,1.22,2.99,2.85,3.05,1.63.05,2.99-1.23,3.05-2.86.05-1.63-1.23-2.99-2.85-3.05-1.63-.05-2.99,1.23-3.05,2.86ZM224.02,84.08c-.05,1.55,1.17,2.85,2.72,2.9,1.55.05,2.85-1.17,2.9-2.72.05-1.55-1.17-2.85-2.72-2.9-1.55-.05-2.85,1.17-2.9,2.72ZM227.05,97.86c1.47.05,2.71-1.11,2.76-2.58.05-1.47-1.11-2.71-2.58-2.76-1.47-.05-2.71,1.11-2.76,2.58-.05,1.48,1.11,2.71,2.58,2.76ZM229.09,108.56c1.4.05,2.57-1.05,2.61-2.45.05-1.4-1.05-2.57-2.45-2.61-1.4-.05-2.57,1.05-2.61,2.45-.05,1.4,1.05,2.57,2.45,2.61ZM235.33,116.1c.04-1.32-.99-2.42-2.31-2.47-1.32-.04-2.42.99-2.47,2.31-.04,1.32.99,2.42,2.31,2.47,1.32.04,2.42-.99,2.47-2.31ZM239.28,52.8c.06-1.79-1.34-3.28-3.13-3.34-1.79-.06-3.28,1.34-3.34,3.13-.06,1.79,1.34,3.28,3.13,3.34,1.78.06,3.28-1.34,3.34-3.13ZM242.16,46.96c1.86.06,3.42-1.4,3.48-3.26.06-1.86-1.4-3.42-3.26-3.48-1.86-.06-3.42,1.4-3.48,3.26-.06,1.86,1.4,3.42,3.26,3.48ZM244.27,58.36c-.03.97.73,1.78,1.7,1.81.97.03,1.78-.73,1.81-1.7.03-.97-.73-1.78-1.7-1.81s-1.78.73-1.81,1.7ZM244.28,101.35h5.59v-26.66h-5.59v26.66ZM250.28,134.7c0-.51.1-1,.3-1.48.2-.48.47-.9.82-1.25.34-.36.75-.64,1.23-.86.48-.21.99-.32,1.51-.32s1.01.1,1.48.31c.47.2.89.5,1.25.87l.98-.87c-.48-.51-1.05-.89-1.69-1.17-.64-.27-1.33-.41-2.06-.41s-1.4.14-2.05.41c-.64.27-1.2.64-1.66,1.1-.46.46-.83,1.01-1.1,1.65-.27.64-.41,1.31-.41,2.01,0,.95.24,1.83.71,2.63.47.8,1.11,1.42,1.9,1.87.8.45,1.66.68,2.59.68,1.38,0,2.58-.5,3.61-1.5l-.9-.9c-.36.35-.77.62-1.24.83-.47.2-.96.31-1.47.31s-.99-.1-1.46-.31c-.47-.21-.88-.49-1.23-.84-.34-.35-.62-.76-.83-1.25-.21-.48-.31-.98-.31-1.5ZM258.93,124.09h5.84v-1.3h-4.46v-3.27h3.7v-1.3h-3.7v-2.84h4.46v-1.3h-5.84v10.01ZM264.77,129.68h-5.84v10.01h5.84v-1.3h-4.46v-3.27h3.7v-1.3h-3.7v-2.84h4.46v-1.3ZM273.5,139.69l-2.61-4.44c.77-.12,1.36-.41,1.77-.87.41-.46.61-1.08.61-1.87,0-.96-.3-1.67-.89-2.14-.59-.46-1.4-.7-2.43-.7h-3.68v10.01h1.38v-4.35h1.72l2.54,4.35h1.58ZM281.51,129.68h-7.78v1.3h3.2v8.71h1.38v-8.71h3.2v-1.3ZM283.95,129.68h-1.38v10h1.38v-10ZM284.31,123.86c.64-.27,1.2-.64,1.67-1.1.47-.46.84-1.01,1.11-1.65.27-.64.41-1.32.41-2.03s-.14-1.39-.41-2.03c-.27-.64-.64-1.19-1.11-1.65-.46-.46-1.02-.83-1.66-1.1-.65-.27-1.33-.41-2.05-.41s-1.42.14-2.07.41c-.65.28-1.2.64-1.66,1.11-.46.46-.82,1.02-1.09,1.65-.27.64-.4,1.31-.4,2.01s.14,1.4.42,2.04c.28.64.65,1.19,1.12,1.65.47.46,1.03.82,1.67,1.09.64.27,1.32.4,2.03.4s1.39-.14,2.04-.41ZM291.78,129.68h-5.88v10.01h1.38v-4.57h3.73v-1.3h-3.73v-2.84h4.5v-1.3ZM294.39,129.68h-1.38v10h1.38v-10ZM294.8,124.27c.92,0,1.73-.21,2.43-.63s1.24-1,1.61-1.73c.37-.74.56-1.58.56-2.52v-.87h-4.9v1.3h3.56c-.03.53-.13,1-.31,1.41s-.42.75-.71,1c-.29.25-.63.45-1,.58-.38.13-.78.19-1.22.19-.73,0-1.39-.17-1.98-.52-.59-.34-1.05-.81-1.38-1.4-.33-.59-.5-1.24-.5-1.95s.17-1.38.5-1.98c.34-.6.8-1.08,1.4-1.44s1.25-.53,1.96-.53c.56,0,1.1.11,1.63.33.53.22.98.55,1.34.98l.86-.96c-.5-.52-1.09-.91-1.75-1.2-.67-.28-1.37-.43-2.11-.43s-1.4.14-2.04.41c-.64.27-1.2.64-1.66,1.1-.46.46-.83,1.02-1.1,1.66-.27.64-.41,1.32-.41,2.03s.14,1.39.41,2.02c.27.64.64,1.18,1.1,1.64.46.46,1.02.82,1.67,1.09.65.27,1.33.4,2.05.4ZM297,134.7c0-.51.1-1,.3-1.48.2-.48.47-.9.82-1.25.34-.36.75-.64,1.23-.86.48-.21.99-.32,1.51-.32s1.01.1,1.49.31c.47.2.89.5,1.25.87l.98-.87c-.48-.51-1.05-.89-1.69-1.17-.64-.27-1.33-.41-2.06-.41s-1.4.14-2.05.41c-.64.27-1.2.64-1.66,1.1-.46.46-.83,1.01-1.1,1.65-.27.64-.41,1.31-.41,2.01,0,.95.24,1.83.71,2.63.47.8,1.11,1.42,1.9,1.87.8.45,1.66.68,2.59.68,1.38,0,2.59-.5,3.61-1.5l-.9-.9c-.36.35-.77.62-1.24.83-.47.2-.96.31-1.47.31s-.99-.1-1.46-.31c-.47-.21-.88-.49-1.22-.84-.35-.35-.62-.76-.83-1.25-.21-.48-.31-.98-.31-1.5ZM314.1,139.69l-3.93-10.01h-1.51l-3.93,10.01h1.48l.9-2.34h4.59l.89,2.34h1.51ZM321,129.68h-7.78v1.3h3.2v8.71h1.38v-8.71h3.19v-1.3ZM323.44,129.68h-1.38v10h1.38v-10ZM335.12,134.68c0-.71-.14-1.39-.41-2.03-.27-.64-.64-1.19-1.11-1.64-.46-.46-1.02-.83-1.67-1.1-.65-.27-1.33-.41-2.05-.41s-1.42.14-2.07.41c-.65.27-1.2.64-1.66,1.11-.46.46-.82,1.01-1.09,1.65-.27.64-.4,1.31-.4,2.01s.14,1.4.42,2.04c.28.64.65,1.19,1.12,1.65.47.46,1.03.82,1.67,1.09.64.27,1.32.4,2.03.4s1.39-.14,2.04-.41c.64-.27,1.2-.64,1.66-1.1.47-.46.84-1.01,1.11-1.65.27-.64.41-1.32.41-2.03ZM345.22,129.68h-1.38v7.7l-5.7-7.7h-1.78v10.01h1.38v-8.19l6.04,8.19h1.44v-10.01ZM345.6,119.09c0-.76-.14-1.46-.41-2.09-.27-.63-.64-1.16-1.12-1.58-.48-.42-1.04-.75-1.7-.99-.66-.23-1.37-.35-2.13-.35h-2.76v10.01h2.75c.77,0,1.48-.12,2.14-.35.66-.23,1.22-.56,1.7-.98.48-.42.85-.95,1.12-1.58.27-.63.4-1.33.4-2.09ZM365.91,80.12v-5.43h-22.03v5.43h8.25v21.23h5.59v-21.23h8.2ZM253.74,118.37c.23-.05.43-.12.61-.23.18-.11.32-.26.41-.47.1-.2.14-.45.14-.74,0-.53-.16-.92-.49-1.17-.32-.25-.81-.37-1.46-.37h-2.28v3.06h2.28c.3,0,.56-.02.79-.07ZM24.05,113.4H0c11.35,33.99,43.32,58.54,81.07,58.81v-22.34c-25.18-.24-46.87-15.08-57.01-36.47M120.96,82.52v20.06h6.87v-17.78c0-.67.24-2.22,2.06-2.86l5.52-2.09v-6.7l-10.71,4.04c-.14.06-1.6.64-2.67,2.23-.93,1.38-1.03,2.8-1.08,3.1M89.45,97.13v-6.77l-13.53,5.14c-1.02.53-2.34.21-2.34-1.06v-11.85c0-.48.13-1.21.6-1.78.51-.61,1.22-.79,1.83-.92h13.46s0-6.74,0-6.74h-15.89c-1.72,0-3.61.75-5.04,2.27-1.27,1.35-1.82,3.27-1.82,4.43v15.76c0,5.62,6.04,7.96,9.28,6.63l13.47-5.1h0ZM101.89,95.79c-1.18-.21-1.95-1.26-1.95-2.62l-.03-10.65s-.1-1.03.54-1.69c.93-.94,2.13-.92,2.14-.91h5.56c.17,0,.33.02.49.07.83.16,1.56.75,1.75,1.63v.98l-7.74,2.87v6.73l14.6-5.5v-6.62c0-.22.11-2.77-2.15-5.04-1.84-1.84-4.34-1.89-4.54-1.89h-10.4c-6.17,0-7.1,5.77-7.1,6.65v15.44c0,4.36,3.16,7.31,6.84,7.31h17.42v-6.75h-15.44ZM38.88,77.85v6.81l15.56-4.61c1.11-.46,1.97.36,1.97,1.23v12.01c0,.48-.19,1.23-.73,1.78-.81.82-1.95.71-1.95.71h-6.87c-.8.09-3.3-.4-5.97,2.05-1.73,1.53-2.03,3.82-2.03,5.12v12h6.87v-9.78c-.07-.79.34-1.54.71-1.91.31-.31.93-.7,1.87-.7h6.91c2.31,0,4.31-.33,6.03-2.14,1.3-1.38,1.92-3.3,1.92-4.46v-15.41c0-4.44-2.93-6.88-5.87-7.27-1.24-.17-1.39-.38-6.43,1.12-5.78,1.72-11.99,3.46-11.99,3.46M28.44,82.87v9.58s.18,1.69-.54,2.41c-.7.7-1.18.92-2.36.92h-6.46c-.45.05-1.3-.24-1.27-1.22v-2.54c0-.48.03-.71.27-1.06.32-.46.77-.52,1.28-.67l6.24-1.83v-6.72l-7.79,2.29c-1.4.41-3.37.77-4.81,2.27-1.35,1.41-2.05,3.18-2.05,4.58-.02,0,0,4.74,0,4.74,0,.93.3,3.13,1.89,4.76,1.7,1.74,3.78,2.17,4.93,2.17h10.4c4.4,0,7.1-3.63,7.1-6.65v-15.32c0-5.16-3.6-7.43-7.24-7.43H10.88v6.75h14.42c.93,0,1.54.03,2.23.62.74.65.91,1.24.91,2.36M140.22,70.8v18.43l28.58-18.43h-28.58ZM132.48,32.93l1.41-2.85-2.8,1.52,1.38,1.34ZM109.33,17.94l.28-3.17-2.05,2.43,1.78.74ZM40.83,21.73c-.47-.75-1.19-.83-1.94-.35l-1.1.7,1.45,2.29,1.11-.7c.76-.48.94-1.21.49-1.91l-.02-.02ZM163.37,58.79h-24.06c-10.23-21.54-32.18-36.44-57.62-36.44s-47.38,14.89-57.62,36.44H.02C11.44,24.62,43.69,0,81.69,0s70.26,24.62,81.68,58.79ZM26.42,41.27l-2.39.31c.15.71.21,1.42-.33,2.13-.72.96-2.09,1.07-3.57-.05l-.05-.04c-1.4-1.06-1.72-2.44-.99-3.4.49-.65,1.19-.83,1.88-.86l-.41-2.47c-1.3.07-2.48.58-3.46,1.87-1.64,2.17-1.24,5.09,1.31,7.03l.14.11c2.57,1.95,5.43,1.53,7.03-.58,1.05-1.38,1.15-2.75.84-4.05ZM36.03,33.63l-1.58-1.72-3.36,3.09-1.2-1.31,2.99-2.75-1.49-1.62-2.99,2.75-1.15-1.25,3.31-3.05-1.58-1.72-5.25,4.83,7.01,7.63,5.29-4.87ZM46.92,25.81l-3.81-2.04c.63-1.05.76-2.27-.07-3.57l-.04-.06c-.56-.89-1.26-1.39-2.06-1.57-.93-.22-2.01.03-3.19.77l-3.44,2.18,5.54,8.76,2.24-1.42-1.72-2.71.8-.51,3.21,1.77,2.54-1.61ZM55.42,21.7l-2.97-7.39,2.38-.95-.89-2.23-7.23,2.9.89,2.23,2.38-.95,2.97,7.39,2.47-.99ZM65.05,18.57l-2.39-10.08-2.59.62,2.39,10.08,2.59-.62ZM72.32,9.11l4.37-.36-.2-2.39-7.02.58.85,10.33,2.66-.22-.32-3.82,3.92-.32-.19-2.29-3.92.32-.15-1.83ZM134.84,25.07l.69,1.1c.42-.2.67-.24.91,0,.15.14.28.41.46.8.22.41.43.83.74,1.13.65.63,1.45.48,2.59-.34l-.68-1.11c-.43.21-.67.24-.92,0-.14-.13-.28-.39-.45-.77-.23-.42-.46-.85-.75-1.14-.65-.63-1.45-.48-2.59.34ZM85.55,6.29l-2.66-.15-.59,10.34,2.66.15.59-10.34ZM93.84,12.3v-.06c.38-1.72,1.48-2.59,2.67-2.34.8.17,1.26.72,1.58,1.33l2.06-1.43c-.62-1.14-1.58-2-3.17-2.33-2.66-.56-5.14,1.05-5.8,4.18l-.04.17c-.67,3.16.93,5.57,3.52,6.11,1.69.36,2.98-.13,4.02-.97l-1.3-2.03c-.58.44-1.2.79-2.06.61-1.17-.25-1.86-1.44-1.48-3.25ZM112.18,12.17l-2.49-1.03-7.36,8.22,2.53,1.05,1.26-1.5,3.01,1.25-.16,1.96,2.58,1.07.62-11.03ZM124.53,22.56l2.44-.56c-.15-1.29-.72-2.44-2.08-3.34-2.27-1.51-5.16-.93-6.93,1.73l-.1.15c-1.49,2.24-1.34,4.57.04,6.13l-1.8.67,1.33,1.85,1.83-1.43c1.3.72,2.52.72,3.69.36l-.45-2.37c-.7.19-1.4.29-2.14-.2-1-.67-1.19-2.02-.17-3.56l.03-.05c.98-1.47,2.33-1.86,3.34-1.19.68.45.9,1.13.97,1.82ZM132.63,38.63l4.6-10.04-1.94-1.87-9.86,4.97,1.97,1.9,1.72-.93,2.34,2.26-.86,1.76,2.01,1.94ZM146.59,39.17c-1.63-2.26-4.58-2.63-7.09-.82l-.18.13c-2.52,1.82-3.1,4.69-1.46,6.96,1.63,2.26,4.58,2.63,7.09.82l.18-.13c2.52-1.82,3.1-4.69,1.46-6.96ZM141.08,40.57l-.13.1c-1.45,1.05-1.84,2.38-1.12,3.38.73,1.01,2.09,1.05,3.54,0l.13-.09c1.45-1.05,1.84-2.38,1.12-3.38-.72-1-2.09-1.05-3.54,0ZM88.84,171.14l-1.46-16.44,4.23-.38,1.46,16.44-4.23.38h0ZM102.48,169.13c-2.38.58-4.83.4-7.1-.77l1.47-3.54c1.57.76,3.24,1.13,4.79.75,1.1-.27,1.55-.89,1.39-1.58v-.02c-.16-.64-.74-.91-2.78-1.12-3.27-.29-5.67-.87-6.38-3.78l-.02-.07c-.71-2.91,1.01-5.49,4.52-6.34,2.15-.53,4.2-.39,6.2.55l-1.34,3.58c-1.31-.58-2.79-.87-4.09-.55-.94.23-1.35.82-1.21,1.41v.02c.18.71.77.95,3,1.21,3.29.24,5.49,1.01,6.15,3.74v.05c.77,3.11-1.16,5.63-4.6,6.46h0ZM119.03,163.2c-4.04,1.88-8.37.13-10.46-4.35l-.15-.32c-2.08-4.46-.62-8.97,3.39-10.85,4.04-1.88,8.37-.13,10.46,4.35l.15.32c2.08,4.46.62,8.97-3.39,10.85h0ZM117.42,159.71c1.79-.84,2.26-2.96,1.06-5.54l-.11-.23c-1.21-2.58-3.18-3.59-4.96-2.76s-2.26,2.96-1.06,5.54l.11.23c1.21,2.58,3.18,3.59,4.96,2.76h0ZM135.13,148.35c1.58-1.34.96-3.13.04-4.41-.21,1.14-.76,2.06-1.64,2.81-2.05,1.74-4.89,1.85-7.11-.78l-.06-.07c-2.37-2.81-1.89-6.21.65-8.36,1.51-1.28,2.87-1.68,4.4-1.56,1.69.14,3.52,1.13,5.63,3.63l.05.05c3.76,4.45,3.78,8.56.45,11.38-1.48,1.25-2.98,1.78-4.78,1.94l-.67-3.54c1.14-.07,2.17-.35,3.05-1.1h0ZM132.37,143.62c.95-.81.88-1.98,0-3.03l-.03-.04c-.91-1.08-2.1-1.35-3.07-.52-.94.79-.87,1.97.05,3.05l.03.04c.91,1.08,2.08,1.29,3.02.5h0ZM150.08,137.68c-2.54,3.31-6.82,3.24-10.73.24l-.28-.21c-3.89-2.98-5.08-7.16-2.54-10.48,2.52-3.29,6.82-3.24,10.73-.24l.28.21c3.89,2.98,5.08,7.16,2.54,10.48h0ZM147.1,135.33c.9-1.18.24-2.91-2.14-4.73l-.26-.2c-2.39-1.84-4.28-2.01-5.19-.83-.9,1.18-.26,2.89,2.14,4.73l.26.2c2.39,1.84,4.27,2.03,5.19.83h0ZM159.2,122.63c-1.86,3.74-6.07,4.49-10.48,2.29l-.32-.16c-4.39-2.18-6.36-6.06-4.5-9.79,1.85-3.72,6.07-4.49,10.48-2.29l.32.16c4.39,2.18,6.36,6.06,4.5,9.79h0ZM155.83,120.9c.66-1.33-.32-2.9-3-4.23l-.3-.15c-2.7-1.34-4.59-1.15-5.25.18-.66,1.33.3,2.89,3,4.23l.3.15c2.7,1.34,4.58,1.17,5.25-.18h0ZM163.41,110.82l-11.98-3.56-.11,2.53-3.54-.44.04-4.34.87-2.94,15.91,4.73-1.2,4.02h0Z"/>
 </svg></div>
-          <p class="foot__certtxt"><strong class="foot__cert-title" data-i18n="cert-apcer-title">Certificação APCER</strong><br><span data-i18n="cert-apcer-txt">ISO 9001:2015 — Sistema de Gestão de Qualidade. Certificação que comprova o cumprimento dos requisitos internacionais de qualidade, garantindo a satisfação do cliente.</span></p>
+          <p class="foot__certtxt"><strong class="foot__cert-title" data-i18n="cert-iso-title">ISO 9001:2015 — Sistema de Gestão de&nbsp;Qualidade</strong><span data-i18n="cert-apcer-txt">Certificação que comprova o cumprimento dos requisitos internacionais de qualidade, garantindo a satisfação do cliente.</span></p>
         </div>
       </div>
       <a href="#topo" class="mark foot__brand" aria-label="Boavista Garden — início"><?xml version="1.0" encoding="UTF-8"?>
@@ -1454,7 +1485,7 @@ contemporânea.”</blockquote>
 </svg></a>
     </div>
     <div class="foot__legal">
-      <span><span data-i18n="j-m-portela-media-o-imobili-ria--0">J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340</span> &middot; <a href="#privacidade" class="js-privacy" data-i18n="privacy-link" style="color:var(--tan-lt)">Política de privacidade</a></span>
+      <span><span data-i18n="j-m-portela-media-o-imobili-ria--0">J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340</span> &middot; <a href="#privacidade" class="js-privacy" data-i18n="privacy-link">Política de privacidade</a></span>
       <span data-i18n="2026-boavista-garden-todos-os-di-0">&copy; 2026 Boavista Garden. Todos os direitos reservados.</span>
     </div>
   </div>
@@ -1959,7 +1990,7 @@ var PLANTAS = {
   });
 
   /* ---------- tradução PT/EN ---------- */
-  var EN = {"as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "ISO 9001:2015 — Quality Management System. Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date", "residencias-nav-0": "Residences", "residencias-min-0": "residences", "desde-0": "from", "residencias-disponiveis-min-0": "residences available", "jardim-privativo-comum-0": "shared private garden", "portaria-com-seguranca-0": "24-hour concierge", "hero-h1-a-0": "Two eras.", "hero-h1-b-0": "One single", "hero-h1-em-0": "garden", "elevador-privativo-0": "Private lift"};
+  var EN = {"contacto-0": "Contact", "cert-iso-title": "ISO 9001:2015 — Quality Management&nbsp;System", "as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date", "residencias-nav-0": "Residences", "residencias-min-0": "residences", "desde-0": "from", "residencias-disponiveis-min-0": "residences available", "jardim-privativo-comum-0": "shared private garden", "portaria-com-seguranca-0": "24-hour concierge", "hero-h1-a-0": "Two eras.", "hero-h1-b-0": "One single", "hero-h1-em-0": "garden", "elevador-privativo-0": "Private lift"};
   var idioma = 'pt';
   var els = document.querySelectorAll('[data-i18n]');
   /* guardar o PT original de cada elemento */
