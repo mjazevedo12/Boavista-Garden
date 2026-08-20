@@ -2,6 +2,62 @@
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
+
+<!-- ===== Consentimento (RGPD) + Tracking de conversões =====
+     Consentimento NEGADO por defeito. Só é concedido se o utilizador
+     aceitar no banner de cookies. gtag e fbq só disparam com consentimento. -->
+<script>
+(function(){
+  // Estado de consentimento memorizado (localStorage 'bg-consent': 'granted'|'denied')
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  // Consent Mode v2 — TUDO NEGADO por defeito (antes de carregar qualquer tag)
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+
+  // Meta Pixel — inicializa em modo revogado por defeito
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('consent', 'revoke'); // Meta: sem consentimento até o utilizador aceitar
+
+  // Se já houve escolha anterior "granted", repõe o consentimento
+  try {
+    if (localStorage.getItem('bg-consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage':'granted','ad_user_data':'granted',
+        'ad_personalization':'granted','analytics_storage':'granted'
+      });
+      fbq('consent','grant');
+    }
+  } catch(e){}
+})();
+</script>
+
+<!-- Google Ads (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10879876233"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-10879876233');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+  fbq('init', '450088263636313');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=450088263636313&ev=PageView&noscript=1"/></noscript>
+<!-- ===== fim tracking ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boavista Garden — 16 residências de alto luxo na Avenida da Boavista, Porto</title>
 <meta name="description" content="Boavista Garden. Apenas 16 apartamentos T3 e T4, penthouses e duplex com jardim, na Avenida da Boavista, Porto. Palacete histórico preservado, jardim privativo e segurança 24 horas.">
@@ -15,6 +71,11 @@
 <meta property="og:title" content="Boavista Garden — Avenida da Boavista, Porto">
 <meta property="og:description" content="Duas eras, um só jardim. 16 residências de alto luxo na Avenida da Boavista, desde 1.785.000 €. Palacete histórico preservado, jardim privativo e portaria 24 horas.">
 <meta property="og:image" content="https://boavistagarden.casadaportela.pt/Imagens%20Exteriores/Book%20Boavista%20Garden%20Portugues-23.png">
+<meta property="og:url" content="https://boavistagarden.casadaportela.pt/">
+<meta property="og:image:alt" content="Boavista Garden — palacete restaurado e jardim privativo na Avenida da Boavista, Porto">
+<meta name="twitter:title" content="Boavista Garden — Avenida da Boavista, Porto">
+<meta name="twitter:description" content="Duas eras, um só jardim. 16 residências de alto luxo na Avenida da Boavista, desde 1.785.000 €.">
+<meta name="twitter:image" content="https://boavistagarden.casadaportela.pt/Imagens%20Exteriores/Book%20Boavista%20Garden%20Portugues-23.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,11 +83,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ApartmentComplex","name":"Boavista Garden","numberOfAccommodationUnits":16,
-"address":{"@type":"PostalAddress","streetAddress":"Avenida da Boavista","addressLocality":"Porto","addressCountry":"PT"},
-"url":"https://boavistagarden.casadaportela.pt/",
-"offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":1785000,"highPrice":3620000,"offerCount":12},
-"provider":{"@type":"RealEstateAgent","name":"Casa da Portela — J.M. Portela Mediação Imobiliária, Lda.","telephone":"+351910330640","email":"mportela@casadaportela.pt"}}
+{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://boavistagarden.casadaportela.pt/#agent","name":"Casa da Portela","legalName":"J.M. Portela Mediação Imobiliária, Lda.","vatID":"PT510940390","taxID":"510940390","identifier":[{"@type":"PropertyValue","propertyID":"AMI","value":"10340"},{"@type":"PropertyValue","propertyID":"NIF","value":"510940390"}],"url":"https://boavistagarden.casadaportela.pt/","telephone":"+351910330640","email":"mportela@casadaportela.pt","address":{"@type":"PostalAddress","streetAddress":"Avenida da Boavista","addressLocality":"Porto","addressCountry":"PT"},"hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"ISO 9001:2015 — Sistema de Gestão de Qualidade"},"sameAs":["https://www.instagram.com/casa.da.portela","https://facebook.com/casadaportela","https://pt.linkedin.com/company/casadaportela"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ApartmentComplex","@id":"https://boavistagarden.casadaportela.pt/#empreendimento","name":"Boavista Garden","description":"Empreendimento residencial de alto luxo na Avenida da Boavista, Porto. 16 residências T3 e T4 entre o Palacete de Arthur Nugent, dos anos 1920, restaurado, e um edifício contemporâneo, com jardim privativo comum e portaria 24 horas.","numberOfAccommodationUnits":16,"url":"https://boavistagarden.casadaportela.pt/","address":{"@type":"PostalAddress","streetAddress":"Avenida da Boavista","addressLocality":"Porto","addressCountry":"PT"},"provider":{"@id":"https://boavistagarden.casadaportela.pt/#agent"},"makesOffer":[{"@type":"Offer","name":"Fração A","priceCurrency":"EUR","price":1850000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração C","priceCurrency":"EUR","price":1995000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração D","priceCurrency":"EUR","price":2275000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração E","priceCurrency":"EUR","price":2050000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração F","priceCurrency":"EUR","price":2150000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração G","priceCurrency":"EUR","price":2120000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração J","priceCurrency":"EUR","price":2450000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração K","priceCurrency":"EUR","price":2270000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração L","priceCurrency":"EUR","price":1785000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração N","priceCurrency":"EUR","price":3150000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração O","priceCurrency":"EUR","price":2995000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"},{"@type":"Offer","name":"Fração P","priceCurrency":"EUR","price":3620000,"availability":"https://schema.org/InStock","url":"https://boavistagarden.casadaportela.pt/#residencias"}],"offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":1785000,"highPrice":3620000,"offerCount":12}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","@id":"https://boavistagarden.casadaportela.pt/#faq","mainEntity":[{"@type":"Question","name":"Onde fica o Boavista Garden?","acceptedAnswer":{"@type":"Answer","text":"O empreendimento situa-se na Avenida da Boavista, no Porto — um dos endereços mais nobres da cidade, que une o centro histórico ao mar da Foz. Fica a poucos minutos da Fundação de Serralves, da Casa da Música e do Parque da Cidade, com acessos rápidos à VCI."}},{"@type":"Question","name":"Que tipologias estão disponíveis?","acceptedAnswer":{"@type":"Answer","text":"O Boavista Garden reúne apartamentos T3 e T4, distribuídos entre o palacete recuperado e o edifício contemporâneo. Incluem duplex com jardim privativo e penthouses com varanda, com áreas entre 142 m² e 259 m² de área bruta privativa."}},{"@type":"Question","name":"Quando está prevista a conclusão?","acceptedAnswer":{"@type":"Answer","text":"A comercialização está em curso. Para informação atualizada sobre prazos de conclusão e entrega, a nossa equipa comercial presta todos os esclarecimentos — deixe-nos o seu contacto através do formulário."}},{"@type":"Question","name":"Qual o preço dos apartamentos?","acceptedAnswer":{"@type":"Answer","text":"As residências disponíveis situam-se entre 1.785.000 € e 3.620.000 €, consoante a tipologia, a área e a localização no empreendimento. O valor de cada fração pode ser consultado na listagem de residências ou solicitado à equipa comercial."}},{"@type":"Question","name":"O empreendimento tem garagem?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todas as residências incluem lugares de garagem fechada em box, entre três e cinco lugares consoante a fração, bem como elevador privativo de acesso a cada apartamento."}},{"@type":"Question","name":"Os apartamentos têm espaço exterior?","acceptedAnswer":{"@type":"Answer","text":"Sim. Consoante a fração, as residências dispõem de jardim privativo, varanda, terraço ou áreas exteriores privativas — todas voltadas para o jardim comum que dá nome ao empreendimento."}},{"@type":"Question","name":"Quantas residências tem o empreendimento?","acceptedAnswer":{"@type":"Answer","text":"São 16 residências no total: três no palacete de Arthur Nugent, recuperado, e treze no edifício contemporâneo. Um número deliberadamente reduzido, que garante privacidade e exclusividade a cada morador."}},{"@type":"Question","name":"Quem comercializa o Boavista Garden?","acceptedAnswer":{"@type":"Answer","text":"A comercialização é assegurada pela Casa da Portela (J.M. Portela Mediação Imobiliária, Lda., AMI 10340), certificada ISO 9001. O contacto comercial é Miguel Portela, disponível por telefone, email ou WhatsApp."}}]}
 </script>
 
 <script>
@@ -193,7 +256,7 @@ p{margin:0 0 1.3em}
 .duo{background:var(--beige);color:var(--ink);padding:clamp(5rem,11vw,9rem) 0 clamp(5rem,10vw,8rem)}
 .duo__head{max-width:none;margin:0 0 rem;padding:0 var(--pad)}
 .duo h2{font-size:clamp(1.7rem,3.8vw,3.2rem);line-height:1.1;max-width:none;white-space:nowrap}
-.duo__sub{max-width:55rem;color:#5F5A3E;margin-top:1.2rem}
+.duo__sub{max-width:50rem;color:#5F5A3E;margin-top:1.2rem}
 .duo__pair{display:grid;grid-template-columns:var(--split,1fr 1fr);align-items:stretch;gap:2px;max-width:none;margin:0;padding:0 var(--pad);
            transition:grid-template-columns .7s cubic-bezier(.22,1,.36,1)}
 .wing{position:relative;margin:0;border:0;padding:0;background:#434126;color:var(--cream);text-align:left;
@@ -398,6 +461,10 @@ p{margin:0 0 1.3em}
 .field textarea{resize:vertical;min-height:120px}
 .field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--cream)}
 .field input[type="date"]{color-scheme:dark}
+/* input date em iOS/Safari: impedir que transborde a caixa (largura e box-sizing do webkit) */
+.field input[type="date"]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;width:100%;box-sizing:border-box}
+.field input[type="date"]::-webkit-date-and-time-value{text-align:left;margin:0}
+.field input[type="date"]::-webkit-calendar-picker-indicator{margin-left:auto;flex:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .consent{grid-column:1/-1;display:flex;gap:.9rem;align-items:flex-start;font-size:.9rem;opacity:.9;line-height:1.55;margin-top:.4rem}
 .consent input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:1.35rem;height:1.35rem;margin-top:.15rem;border:1px solid rgba(246,237,226,.4);background:transparent;position:relative;cursor:pointer}
@@ -646,6 +713,21 @@ html[lang="en"] .privacy [data-en]{display:block}
 .hero__line2{white-space:nowrap}
 @media(max-width:420px){.hero__line2{white-space:normal}}
 @media(max-width:560px){.foot__cert-title{white-space:normal}}
+
+/* ===== banner de cookies (discreto) ===== */
+.cookie{position:fixed;left:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:120;max-width:24rem;background:var(--forest,#434126);color:var(--cream);padding:1.3rem 1.4rem;border-radius:3px;box-shadow:0 20px 50px rgba(43,29,31,.28);font-family:var(--sans);animation:cookieIn .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes cookieIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.cookie__txt{margin:0 0 1rem;font-size:.82rem;line-height:1.6;color:var(--tan-lt,#E3D1BD)}
+.cookie__txt a{color:var(--cream);text-decoration:underline;text-underline-offset:2px}
+.cookie__actions{display:flex;gap:.7rem;justify-content:flex-end}
+.cookie__btn{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--tan-lt,#E3D1BD);transition:background .3s,color .3s,opacity .3s;border-radius:2px}
+.cookie__btn--ghost{background:transparent;color:var(--tan-lt,#E3D1BD)}
+.cookie__btn--ghost:hover{opacity:.7}
+.cookie__btn--solid{background:var(--cream);color:var(--forest,#434126);border-color:var(--cream)}
+.cookie__btn--solid:hover{opacity:.88}
+@media(max-width:520px){.cookie{left:1rem;right:1rem;max-width:none;bottom:1rem}}
+@media(prefers-reduced-motion:reduce){.cookie{animation:none}}
+
 </style>
 </head>
 <body>
@@ -1370,6 +1452,10 @@ contemporânea.”</blockquote>
           <option data-i18n="pedir-mais-informa-es-0">Pedir mais informações</option>
         </select>
       </div>
+      <div class="field" id="campo-data-visita" hidden>
+        <label for="data-visita" data-i18n="data-visita-label-0">Data preferencial para a visita</label>
+        <input type="date" id="data-visita" name="data-visita">
+      </div>
       <div class="field">
         <label for="contacto-pref" data-i18n="contacto-preferencial-0">Contacto preferencial</label>
         <select id="contacto-pref" name="contacto-pref">
@@ -1378,10 +1464,6 @@ contemporânea.”</blockquote>
           <option data-i18n="whatsapp-0">WhatsApp</option>
           <option data-i18n="email-0">Email</option>
         </select>
-      </div>
-      <div class="field" id="campo-data-visita" hidden>
-        <label for="data-visita" data-i18n="data-visita-label-0">Data preferencial para a visita</label>
-        <input type="date" id="data-visita" name="data-visita">
       </div>
       <div class="field field--full"><label for="mensagem" data-i18n="mensagem-opcional-0">Mensagem (opcional)</label><textarea id="mensagem" name="mensagem" rows="3"></textarea></div>
       <label class="consent"><input type="checkbox" name="rgpd" required> <span data-i18n="consent-txt">Autorizo o tratamento dos meus dados pessoais para efeitos de contacto comercial sobre o empreendimento Boavista Garden, nos termos da <a href="#privacidade" class="js-privacy" data-i18n="privacy-link-inline">Política de Privacidade</a>.</span></label>
@@ -1518,7 +1600,11 @@ contemporânea.”</blockquote>
   <h2>5. Partilha com terceiros</h2>
   <p>Os dados não são vendidos nem cedidos a terceiros para fins de marketing. Podem ser tratados por prestadores de serviços que apoiam a operação do site e a gestão de contactos (por exemplo, o serviço de alojamento e de formulários), sempre no cumprimento da legislação aplicável.</p>
 
-  <h2>6. Os seus direitos</h2>
+  <h2>6. Cookies e tecnologias de medição</h2>
+  <p>Este site utiliza cookies e tecnologias semelhantes de medição e marketing, através do Google Ads e do Meta Pixel (Facebook/Instagram), para avaliar o desempenho das nossas campanhas e a eficácia da comunicação. Estes serviços podem recolher identificadores do dispositivo e dados de navegação.</p>
+  <p>Estes cookies estão <strong>desativados por defeito</strong> e só são ativados se o utilizador der o seu consentimento explícito através do banner de cookies apresentado no site. Pode aceitar ou recusar, e a sua escolha fica memorizada. Enquanto não aceitar — ou se recusar — nenhum destes sistemas de medição é ativado. Para alterar a sua escolha, pode limpar os cookies do navegador e recarregar a página, voltando o banner a ser apresentado. São utilizados o Consent Mode do Google e o mecanismo de consentimento da Meta, que mantêm as tags em modo revogado até haver autorização.</p>
+
+  <h2>7. Os seus direitos</h2>
   <p>Nos termos do Regulamento Geral sobre a Proteção de Dados (RGPD), assistem-lhe os direitos de acesso, retificação, apagamento, limitação e oposição ao tratamento, bem como o direito de retirar o consentimento a qualquer momento. Para exercer estes direitos, contacte <a href="mailto:mportela@casadaportela.pt">mportela@casadaportela.pt</a>. Tem ainda o direito de apresentar reclamação junto da Comissão Nacional de Proteção de Dados (CNPD).</p>
 
   <h2>7. Alterações</h2>
@@ -1543,7 +1629,11 @@ contemporânea.”</blockquote>
   <h2>5. Sharing with third parties</h2>
   <p>Data is not sold or shared with third parties for marketing purposes. It may be processed by service providers supporting the website and contact management (for example, hosting and form services), always in compliance with applicable law.</p>
 
-  <h2>6. Your rights</h2>
+  <h2>6. Cookies and measurement technologies</h2>
+  <p>This website uses cookies and similar measurement and marketing technologies, through Google Ads and the Meta Pixel (Facebook/Instagram), to assess the performance of our campaigns and the effectiveness of our communication. These services may collect device identifiers and browsing data.</p>
+  <p>These cookies are <strong>disabled by default</strong> and are only activated if the user gives explicit consent through the cookie banner shown on the site. You may accept or decline, and your choice is remembered. Until you accept — or if you decline — none of these measurement systems is activated. To change your choice, you may clear your browser cookies and reload the page, and the banner will be shown again. The site uses Google Consent Mode and Meta's consent mechanism, which keep the tags revoked until authorisation is given.</p>
+
+  <h2>7. Your rights</h2>
   <p>Under the General Data Protection Regulation (GDPR), you have the rights of access, rectification, erasure, restriction and objection to processing, as well as the right to withdraw consent at any time. To exercise these rights, contact <a href="mailto:mportela@casadaportela.pt">mportela@casadaportela.pt</a>. You also have the right to lodge a complaint with the Portuguese Data Protection Authority (CNPD).</p>
 
   <h2>7. Changes</h2>
@@ -1682,21 +1772,20 @@ var PLANTAS = {
   window.addEventListener('resize', pintarNav);
   pintarNav();
 
-  /* WhatsApp: inverter cor quando o fundo atrás do botão é azeitona (data-nav="vinho") */
+  /* WhatsApp: inverter cor quando o fundo atrás do botão é escuro (olive ou forest) */
   var waBtn = document.querySelector('.wa');
   if (waBtn){
+    /* zonas de fundo escuro onde o botão deve ficar claro: hero, "dois edifícios", contacto (olive) e footer */
+    var zonasEscuras = document.querySelectorAll('.hero, .wing, [data-nav="vinho"], .foot');
     var pintarWa = function(){
       var r = waBtn.getBoundingClientRect();
       var y = r.top + r.height/2;
-      var sobreOlive = false;
-      for (var i = 0; i < seccoes.length; i++){
-        var s = seccoes[i].getBoundingClientRect();
-        if (s.top <= y && s.bottom > y){
-          sobreOlive = (seccoes[i].getAttribute('data-nav') === 'vinho');
-          break;
-        }
+      var sobreEscuro = false;
+      for (var i = 0; i < zonasEscuras.length; i++){
+        var s = zonasEscuras[i].getBoundingClientRect();
+        if (s.top <= y && s.bottom > y){ sobreEscuro = true; break; }
       }
-      waBtn.classList.toggle('is-on-olive', sobreOlive);
+      waBtn.classList.toggle('is-on-olive', sobreEscuro);
     };
     window.addEventListener('scroll', pintarWa, {passive:true});
     window.addEventListener('resize', pintarWa);
@@ -1990,7 +2079,7 @@ var PLANTAS = {
   });
 
   /* ---------- tradução PT/EN ---------- */
-  var EN = {"contacto-0": "Contact", "cert-iso-title": "ISO 9001:2015 — Quality Management&nbsp;System", "as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date", "residencias-nav-0": "Residences", "residencias-min-0": "residences", "desde-0": "from", "residencias-disponiveis-min-0": "residences available", "jardim-privativo-comum-0": "shared private garden", "portaria-com-seguranca-0": "24-hour concierge", "hero-h1-a-0": "Two eras.", "hero-h1-b-0": "One single", "hero-h1-em-0": "garden", "elevador-privativo-0": "Private lift"};
+  var EN = {"cookie-txt": "We use measurement and marketing cookies to improve your experience and assess our campaigns. You can accept or decline. <a href=\"#privacidade\" class=\"js-privacy\">Learn more</a>.", "cookie-link": "Learn more", "cookie-reject": "Decline", "cookie-accept": "Accept", "contacto-0": "Contact", "cert-iso-title": "ISO 9001:2015 — Quality Management&nbsp;System", "as-melhores-resid-ncias-rarament-0": "The finest residences rarely reach the open market. Leave us your details and our team will present Boavista Garden in full — floor plans, finishes and the residences still available — at the time and in the way that suit you best.", "situada-em-plena-avenida-da-boav-0": "“Set on Avenida da Boavista, the Arthur Nugent House is an iconic building, raised in the early 1920s. Its design reflects the decorative refinement of the period, with a predominance of the Déco style.”", "o-palacete-de-arthur-nugent-dos--0": "The 1920s Arthur Nugent mansion, restored. And a contemporary building raised on the same grounds. The 16 residences are spread across both, around the same garden.", "poucos-endere-os-no-porto-carreg-0": "Avenida da Boavista embodies Porto's sophistication. A noble avenue linking the historic centre to the Foz seafront, lined with cultural landmarks such as the Serralves Foundation and Casa da Musica. Boavista Garden enjoys this rare centrality while remaining set back in untouched privacy.", "um-palacete-de-1920-preservado-u-0": "A preserved 1920 mansion, a contemporary building and a garden that unites them. Just 16 residences, at the city's most symbolic address.", "dezasseis-apartamentos-tr-s-no-p-0": "Sixteen apartments: three in the restored mansion, thirteen in the new building. All with a private lift, enclosed garage and 24-hour concierge.", "o-boavista-garden-recupera-o-ver-0": "Boavista Garden offers a new way of living where privacy, architecture and nature coexist in harmony, moments from the centre of Porto.", "fachada-art-d-co-e-tra-a-origina-0": "Art Déco façade and original character preserved. Inside, an entirely new home — with wine cellar, mezzanine and private outdoor areas.", "o-terreno-abre-se-sobre-a-avenid-0": "The grounds open onto the avenue yet retreat into their own woodland — the city moments away, the quiet of a garden turned in on itself.", "o-projeto-preserva-os-elementos--0": "The project preserves architectural elements of historical value while answering the demands of contemporary living.", "duplex-com-jardim-nos-pisos-infe-0": "Duplexes with gardens on the lower floors, penthouses with terraces above. Stone, timber and generous openings over the garden.", "plantas-meramente-indicativas-su-0": "Floor plans indicative only &middot; subject to change", "j-m-portela-media-o-imobili-ria--0": "J.M. Portela Mediação Imobiliária, Lda. &middot; AMI 10340", "2026-boavista-garden-todos-os-di-0": "&copy; 2026 Boavista Garden. All rights reserved.", "todas-com-elevador-privativo-e-g-0": "All with a private lift and enclosed&nbsp;garage.", "valores-e-reas-indicativos-sujei-0": "Prices and areas are indicative and subject to change. Images for illustration only. GFA — gross floor area.", "a-liga-o-natureza-deixou-de-ser--0": "Connection to nature is no longer a privilege.", "clique-num-edif-cio-para-ver-as--0": "Click a building to see its residences", "o-endere-o-que-n-o-precisa-de-ex-0": "The address that needs no introduction.", "de-1-785-000-a-3-620-000-0": "From 1,785,000&nbsp;€ to 3,620,000&nbsp;€.", "avenida-da-boavista-porto-0": "Avenida da Boavista - Porto", "16-resid-ncias-nenhuma-igual-0": "16 residences, no two alike.", "palacete-v-o-em-arco-0": "Mansion &middot; arched opening", "mem-ria-descritiva-do-projeto-0": "Project design statement", "espa-os-pensados-para-durar-0": "Spaces designed to endure.", "anos-20-restaurado-0": "1920s &middot; restored", "12-resid-ncias-dispon-veis-0": "12 residences available", "ver-as-resid-ncias-0": "View the residences", "edif-cio-novo-sup-9-sup-0": "New building <sup>9</sup>", "duplex-garden-sup-6-sup-0": "Duplex Garden <sup>6</sup>", "descarregar-brochura-pdf-0": "Download brochure (PDF)", "comercializa-o-exclusiva-0": "More information", "cl-ssico-e-contempor-neo-0": "Classic and contemporary", "rea-exterior-privativa-0": "Private outdoor area", "interiores-e-exteriores-0": "Interiors and exteriors", "conversa-em-privado-0": "A private conversation.", "resid-ncia-de-interesse-0": "Residence of interest", "exclusividade-absoluta-0": "Absolute exclusivity", "penthouse-sup-3-sup-0": "Penthouse <sup>3</sup>", "boavista-duplex-garden-0": "Boavista Duplex Garden", "a-palavra-do-arquiteto-0": "From the architect", "descarregar-a-brochura-0": "Download the brochure", "pedir-mais-informa-es-0": "Request more information", "ver-as-12-resid-ncias-0": "View the 12 residences", "funda-o-de-serralves-0": "Serralves Foundation", "palacete-sup-3-sup-0": "Mansion <sup>3</sup>", "contacto-preferencial-0": "Preferred contact", "no-cora-o-do-porto-0": "In the heart of Porto", "pontos-de-interesse-0": "Points of interest", "proximidades-tempos-percurso-0": "Proximity &amp; travel times", "todas-sup-12-sup-0": "All <sup>12</sup>", "4-lugares-3-em-box-0": "4 spaces, 3 enclosed", "mensagem-opcional-0": "Message (optional)", "boavista-penthouse-0": "Boavista Penthouse", "pedir-informa-es-0": "Request information", "um-ref-gio-verde-0": "A green retreat", "um-jardim-comum-0": "One shared garden.", "parque-da-cidade-0": "City Park", "adega-ou-arrumos-0": "Cellar or storage", "3-lugares-em-box-0": "3 enclosed spaces", "4-lugares-em-box-0": "4 enclosed spaces", "5-lugares-em-box-0": "5 enclosed spaces", "agendar-reuni-o-0": "Book a meeting", "dois-edif-cios-0": "Two buildings.", "constru-o-nova-0": "New build", "centro-do-porto-0": "Porto city centre", "suite-principal-0": "Master suite", "espa-o-exterior-0": "Outdoor space", "comercializa-o-0": "Marketed by", "casa-da-m-sica-0": "Casa da Música", "sala-de-jantar-0": "Dining room", "miguel-portela-0": "Miguel Portela", "sala-de-estar-0": "Living room", "enviar-pedido-0": "Send request", "os-edif-cios-0": "The Buildings", "acesso-vci-0": "VCI ring road", "foz-do-douro-0": "Foz do Douro", "localiza-o-0": "Location", "arquitetura-0": "Architecture", "indiferente-0": "No preference", "o-palacete-0": "The Mansion", "o-palacete-nav": "The Mansion", "descobrir-o-palacete": "Discover the mansion &#8594;", "o-edif-cio-0": "The Building", "ver-planta-0": "View floor plan", "rea-total-0": "Total area", "open-space-0": "Open plan", "o-projeto-0": "The Project", "mezzanine-0": "Mezzanine", "palacete-0": "Mansion", "telefone-0": "Phone", "pretendo-0": "I would like to", "whatsapp-0": "WhatsApp", "vendido-0": "Sold", "varanda-0": "Terrace", "garagem-0": "Garage", "cozinha-0": "Kitchen", "jardim-0": "Garden", "quarto-0": "Bedroom", "planta-0": "Floor plan", "valor-0": "Price", "email-0": "Email", "menu-0": "Menu", "piso-0": "Floor", "nome-0": "Name", "abp-0": "GFA", "attr-fotografia-anterior-0": "Previous photo", "attr-fotografia-seguinte-0": "Next photo", "attr-fechar-planta-0": "Close floor plan", "attr-fechar-menu-0": "Close menu", "consent-txt": "I consent to the processing of my personal data for the purpose of commercial contact regarding the Boavista Garden development, under the <a href=\"#privacidade\" class=\"js-privacy\">Privacy Policy</a>.", "privacy-link": "Privacy policy", "privacy-link-inline": "Privacy Policy", "call-cost": "National mobile call rates apply", "open-maps": "Open in Google Maps &#8599;", "cert-label": "Quality certification", "cert-apcer-title": "APCER Certification", "cert-apcer-txt": "Certification confirming compliance with international quality standards, ensuring client satisfaction.", "wa-tip": "Chat with us on WhatsApp", "conhe-a-o-boavista-garden-0": "Discover Boavista Garden", "fale-com-a-nossa-equipa": "Talk to our team", "perguntas-frequentes-0": "Frequently asked questions", "tudo-o-que-precisa-de-saber-0": "Everything you need to know about Boavista Garden", "faq-q-0": "Where is Boavista Garden located?", "faq-q-1": "What layouts are available?", "faq-q-2": "When is completion expected?", "faq-q-3": "What do the apartments cost?", "faq-q-4": "Does the development have parking?", "faq-q-5": "Do the apartments have outdoor space?", "faq-q-6": "How many residences does the development have?", "faq-q-7": "Who markets Boavista Garden?", "faq-a-0": "The development sits on Avenida da Boavista in Porto, one of the city's most distinguished addresses, linking the historic centre to the Foz seafront. It is minutes from the Serralves Foundation, Casa da Musica and the City Park, with quick access to the VCI ring road.", "faq-a-1": "Boavista Garden offers 3 and 4-bedroom apartments, spread across the restored mansion and the contemporary building. They include duplexes with private gardens and penthouses with terraces, with areas between 142 m2 and 259 m2 of gross floor area.", "faq-a-2": "Sales are under way. For up-to-date information on completion and handover dates, our team will be glad to help; leave your details through the form.", "faq-a-3": "Available residences range from 1,785,000 EUR to 3,620,000 EUR, depending on layout, area and location within the development. The price of each unit can be found in the residences list or requested from the sales team.", "faq-a-4": "Yes. Every residence includes enclosed garage spaces, between three and five depending on the unit, as well as a private lift serving each apartment.", "faq-a-5": "Yes. Depending on the unit, residences have a private garden, balcony, terrace or private outdoor areas, all facing the shared garden that gives the development its name.", "faq-a-6": "There are 16 residences in total: three in the restored Arthur Nugent mansion and thirteen in the contemporary building. A deliberately small number that ensures privacy and exclusivity for every resident.", "faq-a-7": "Sales are handled by Casa da Portela (J.M. Portela Mediacao Imobiliaria, Lda., AMI 10340), ISO 9001 certified. The sales contact is Miguel Portela, available by phone, email or WhatsApp.", "agendar-visita-0": "Book a viewing", "descarregar-brochura-nav": "Download brochure", "data-visita-label-0": "Preferred visit date", "residencias-nav-0": "Residences", "residencias-min-0": "residences", "desde-0": "from", "residencias-disponiveis-min-0": "residences available", "jardim-privativo-comum-0": "shared private garden", "portaria-com-seguranca-0": "24-hour concierge", "hero-h1-a-0": "Two eras.", "hero-h1-b-0": "One single", "hero-h1-em-0": "garden", "elevador-privativo-0": "Private lift"};
   var idioma = 'pt';
   var els = document.querySelectorAll('[data-i18n]');
   /* guardar o PT original de cada elemento */
@@ -2136,6 +2225,17 @@ var PLANTAS = {
       .then(function(resposta){ return resposta.json(); })
       .then(function(dados){
         if (dados && dados.estado === 'ok') {
+          // ===== Conversões: SÓ na submissão bem-sucedida =====
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-10879876233/YTUGCJe9uOQcEIn59sMo',
+              'value': 1.0,
+              'currency': 'EUR'
+            });
+          }
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', { content_name: 'Boavista Garden', currency: 'EUR' });
+          }
           okBox.innerHTML = '<b>' + msg[0] + '</b>' + msg[1];
           okBox.hidden = false;
           if (opt === 'Descarregar a brochura' || opt === 'Download the brochure') {
@@ -2180,5 +2280,56 @@ var PLANTAS = {
 </script>
 
 
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <p class="cookie__txt" data-i18n="cookie-txt">Utilizamos cookies de medição e marketing para melhorar a sua experiência e avaliar as nossas campanhas. Pode aceitar ou recusar. <a href="#privacidade" class="js-privacy" data-i18n="cookie-link">Saber mais</a>.</p>
+  <div class="cookie__actions">
+    <button type="button" class="cookie__btn cookie__btn--ghost" id="cookieReject" data-i18n="cookie-reject">Recusar</button>
+    <button type="button" class="cookie__btn cookie__btn--solid" id="cookieAccept" data-i18n="cookie-accept">Aceitar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+  var escolha;
+  try { escolha = localStorage.getItem('bg-consent'); } catch(e){}
+
+  // mostrar o banner apenas se ainda não houve escolha
+  if (escolha !== 'granted' && escolha !== 'denied') { banner.hidden = false; }
+
+  var guardar = function(valor){
+    try { localStorage.setItem('bg-consent', valor); } catch(e){}
+    banner.hidden = true;
+  };
+
+  var aceitar = document.getElementById('cookieAccept');
+  var recusar = document.getElementById('cookieReject');
+
+  if (aceitar) aceitar.addEventListener('click', function(){
+    // concede os DOIS sistemas de uma vez
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage':'granted','ad_user_data':'granted',
+        'ad_personalization':'granted','analytics_storage':'granted'
+      });
+    }
+    if (typeof fbq === 'function') { fbq('consent','grant'); }
+    guardar('granted');
+  });
+
+  if (recusar) recusar.addEventListener('click', function(){
+    // mantém os dois sistemas desativados
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage':'denied','ad_user_data':'denied',
+        'ad_personalization':'denied','analytics_storage':'denied'
+      });
+    }
+    if (typeof fbq === 'function') { fbq('consent','revoke'); }
+    guardar('denied');
+  });
+})();
+</script>
 </body>
 </html>
